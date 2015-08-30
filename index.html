@@ -8,6 +8,8 @@
 	<meta name="author" content="Roy Fokker">
 
 	<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src='//coffeescript.org/extras/coffee-script.js'></script>
+	<script src='//jumly.tmtk.net/public/jumly.min.js'></script>
 
 	<script src="js/scripts.js"></script>
 	<link rel="stylesheet" href="css/styles.css" />
@@ -39,6 +41,10 @@
 			</div>
 			<div>
 				<h4>Sequence Diagram</h4>
+				<script type='text/jumly+sequence'>
+					@found "You", ->
+					@message "meet", "JUMLY"
+				</script>
 			</div>
 		</section>
 		<section>
