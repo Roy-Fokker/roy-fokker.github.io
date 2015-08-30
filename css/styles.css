@@ -1,5 +1,23 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Raleway|Open+Sans);
 
+.color-0-0 { color: #0E4671 }	/* Main Primary color */
+.color-0-1 { color: #356A92 }
+.color-0-2 { color: #1A5888 }
+.color-0-3 { color: #05375D }
+.color-0-4 { color: #022845 }
+
+.color-1-0 { color: #AF860B }	/* Main Secondary color (1) */
+.color-1-1 { color: #E3BC48 }
+.color-1-2 { color: #D4A61C }
+.color-1-3 { color: #916C00 }
+.color-1-4 { color: #6B5000 }
+
+.color-2-0 { color: #AF3A0B }	/* Main Secondary color (2) */
+.color-2-1 { color: #E37448 }
+.color-2-2 { color: #D4501C }
+.color-2-3 { color: #912900 }
+.color-2-4 { color: #6B1F00 }
+
 html, body {
 	width: 100%;
 	padding: 0;
@@ -14,3 +32,48 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+h1 {
+	color: #0E4671;
+	background-color: #cacaca;
+	padding: 0.25rem;
+}
+
+
+h2 {
+	color: #AF860B;
+	background-color: #dddcdc;
+	padding: 0.25rem;
+}
+
+h3 {
+	color: #AF3A0B;
+	background-color: #ebe9e9;
+	padding: 0.25rem;
+}
+
+h4 {
+	color: #6B5000;
+}
+
+header h1 {
+	padding-left: 0.25rem;
+}
+
+article h2 {
+	padding-left: 0.5rem;
+}
+
+section h3 {
+	padding-left: 0.75rem;
+}
+
+section div {
+	padding-left: 1.0rem;
+}
+
+section div ul {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
