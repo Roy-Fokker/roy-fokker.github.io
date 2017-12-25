@@ -32,5 +32,16 @@
 		<h2>Section</h2>
 		<div>body</div>
 	</section>
+	<section>
+		<script>
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				console.log(this.responseXML);
+			}
+			xhr.open("GET", "test.html");
+			xhr.responseType = "document";
+			xhr.send();
+		</script>
+	</section>
 </body>
 </html>
