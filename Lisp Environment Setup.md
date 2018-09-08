@@ -196,12 +196,12 @@ Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
   - `Ctrl+x 0` remove current frame
 
 ### Screenshot
-  After all that work, below is how it looks.
-  ![Emacs Editing Common Lisp](images/emacs_lisp_screenshot.png)
-  It has 3 frames/windows
-    - Left Frame:- Lisp file editor/buffer
-    - Right Top Frame:- Windows CMD shell
-    - Right Bottom Frame:- SBCL REPL via Roswell and Slime
+After all that work, below is how it looks.
+![Emacs Editing Common Lisp](images/emacs_lisp_screenshot.png)
+It has 3 frames/windows
+  - Left Frame:- Lisp file editor/buffer
+  - Right Top Frame:- Windows CMD shell
+  - Right Bottom Frame:- SBCL REPL via Roswell and Slime
 
 
 ### Related
