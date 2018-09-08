@@ -16,3 +16,7 @@
 ## Exercises
 - [Google Common Lisp Koans](https://github.com/google/lisp-koans)
 - [Exercism Common Lisp Track](https://exercism.io/tracks/common-lisp/exercises)
+
+
+#### Related
+[Setting up a Lisp Environment on Windows 10-64bit](Lisp Environment Setup.md)

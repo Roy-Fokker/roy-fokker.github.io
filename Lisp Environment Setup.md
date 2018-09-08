@@ -195,3 +195,5 @@ Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
   - `Ctrl+x 1` Expand current frame
   - `Ctrl+x 0` remove current frame
 
+#### Related
+[Lisp Learning Plan](Lisp Learning Plan.md)
