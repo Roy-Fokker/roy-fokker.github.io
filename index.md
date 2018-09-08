@@ -1,5 +1,5 @@
 # Finished
-- [Setting up a Lisp Environment on Windows 10-64bit](Lisp Environment Setup.md)
+- [Setting up a Lisp Environment on Windows 7/10-64bit](Lisp Environment Setup.md)
 
 # In-progress
 - [Lisp Learning Plan](Lisp Learning Plan.md)
