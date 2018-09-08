@@ -199,7 +199,7 @@ Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
   - In Slime-REPL window/frame: pressing `,`[comma] will allow you to modify some repl environment settings. My frequent one is to change working directory of the REPL `,` then `change-directory`
   - `Ctrl+c Ctrl+c` compile current function/lisp form.
   - `Ctrl+c Ctrl+k` compiles whole file.
-- [Slime Commands cheatsheet](http://pchristensen.com/wp-content/uploads/2008/02/slimecommands.pdf) (`M` means `Alt`)
+- [Slime key index](https://www.common-lisp.net/project/slime/doc/html/Key-Index.html#Key-Index)
 ### Screenshot
 After all that work, below is how it looks.
 ![Emacs Editing Common Lisp](images/emacs_lisp_screenshot.png)
