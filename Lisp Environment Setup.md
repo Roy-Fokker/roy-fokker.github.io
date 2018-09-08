@@ -77,7 +77,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
   - File Open/Create command in Emacs is `Ctrl + x Ctrl + f` then typing the path of file you are interested in.<br/>
   For `init.el` this is `~/.emacs.d/init.el`
   - Configuring Package repository put following in `init.el` (at top of the file)
-    ```emacs-lisp
+    ```common_lisp
     ;; Setup ELPA and MELPA
     (require 'package)
     (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -108,20 +108,20 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
 - Configuring Emacs to use packages <br/>
   All of below are to be added to init.el bottom of the file. Remeber to save `Ctrl + x Ctrl + s`
   - Language/UTF-8 <br/>
-    ```emacs-lisp
+    ```common_lisp
     ;; Set language locale and utf-8
     (set-language-environment "UTF-8")
     (setenv "LC_LOCALE" "en_US.UTF-8")
     (setenv "LC_CTYPE" "en_US.UTF-8")
     ```
   - Parenthesis highlighting (very useful for Lisp editing)<br/>
-    ```emacs-lisp
+    ```common_lisp
     ;; Highlight parens
     (require 'paren)
     (show-paren-mode t)
     ```
   - SLIME configuration <br/>
-    ```emacs-lisp
+    ```common_lisp
     ;; Configure Slime
     (require 'cl)
     (setq inferior-lisp-program "ros -Q run") ; set to roswell
@@ -130,7 +130,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
     (setq slime-net-coding-system 'utf-8-unix)
     ```
   - Auto-complete and ac-slime configuration <br/>
-    ```emacs-lisp
+    ```common_lisp
     ;; Configure auto-complete and ac-slime
     (ac-config-default)
     (add-hook 'slime-mode-hook 'set-up-slime-ac)
@@ -139,7 +139,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
       '(add-to-list 'ac-modes 'slime-repl-mode))
     ```
   - Parinfer configration <br/>
-    ```emacs-lisp
+    ```common_lisp
     ;; Configure parinfer
     (use-package parinfer
       :ensure t
@@ -151,20 +151,20 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
           paredit         ; introduce some paredit commands.
           smart-tab       ; C-b & C-f jump positions and smart shift with tab & S-tab.
           smart-yank))    ; Yank behaviour depends on mode.
-        (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
+        (add-hook 'common_lisp-mode-hook #'parinfer-mode)
         (add-hook 'common-lisp-mode-hook #'parinfer-mode)
         (add-hook 'lisp-mode-hook #'parinfer-mode)))
     ```
   - Rainbow Delimiters configuration
-    ```emacs-lisp
+    ```common_lisp
     ;; Rainbow delimiter
     (require 'rainbow-delimiters)
-    (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+    (add-hook 'common_lisp-mode-hook 'rainbow-delimiters-mode)
     (add-hook 'common-lisp-mode-hook 'rainbow-delimiters-mode)
     (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
     ```
   - Line Number display (optional) <br/>
-    ```emacs-lisp
+    ```common_lisp
     ;; Show line numbers
     (add-hook 'find-file-hook 'linum-mode)
     ```
