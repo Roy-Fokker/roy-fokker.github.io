@@ -1,1 +1,1 @@
-# [Setting up a Lisp Environment on Windows 10-64bit](Lisp Environment Setup.md)
+- [Setting up a Lisp Environment on Windows 10-64bit](Lisp Environment Setup.md)
