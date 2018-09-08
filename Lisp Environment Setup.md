@@ -184,25 +184,26 @@ Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
 - Create new file buffer :- `Ctrl+x Ctrl+f` followed by file directory and name. If file doesn't exist Emacs will create it on save.
 - Save file buffer :- `Ctrl+x Ctrl+s`
 - Close buffer: `Ctrl+x k` followed by buffer name
+- Change to Open Buffer: `Ctrl+x b` followed by buffer name
 - Slime Specific Commands :- 
   - In Slime-REPL window/frame: pressing `,`[comma] will allow you to modify some repl environment settings. My frequent one is to change working directory of the REPL `,` then `change-directory`
   - `Ctrl+c Ctrl+c` compile current function/lisp form.
   - `Ctrl+c Ctrl+k` compiles whole file.
   - [Slime Documentation on Evaluation Commands](https://common-lisp.net/project/slime/doc/html/Evaluation.html#Evaluation)
 - Emacs frame/window :-
-  - `Ctrl+x 2` split current frame horizontally
-  - `Ctrl+x 3` split current frame vertically
-  - `Ctrl+x 1` Expand current frame
-  - `Ctrl+x 0` remove current frame
+  - `Ctrl+x 2` split current frame/window horizontally
+  - `Ctrl+x 3` split current frame/window vertically
+  - `Ctrl+x 1` Expand current frame/window
+  - `Ctrl+x 0` remove current frame/window
+  - `Ctrl+x o` move between open frame/window
 
 ### Screenshot
 After all that work, below is how it looks.
 ![Emacs Editing Common Lisp](images/emacs_lisp_screenshot.png)
 It has 3 frames/windows
-  - Left Frame:- Lisp file editor/buffer
-  - Right Top Frame:- Windows CMD shell
-  - Right Bottom Frame:- SBCL REPL via Roswell and Slime
-
+- `Left Frame`:- Lisp file editor/buffer
+- `Right Top Frame`:- Windows CMD shell
+- `Right Bottom Frame`:- SBCL REPL via Roswell and Slime
 
 ### Related
   [Lisp Learning Plan](Lisp Learning Plan.md)
