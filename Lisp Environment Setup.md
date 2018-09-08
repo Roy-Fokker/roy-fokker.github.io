@@ -51,7 +51,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
 - [Emacs - v 26.1 - x64](http://ftp.gnu.org/gnu/emacs/windows/emacs-26/emacs-26.1-x86_64.zip)
 
 ## Setting up the tools
-`Note:` Destination directory doesn't matter. Above is done to keep things together. `E:\Common_Lisp` is a Personal Preference. It could be `C:\BhelaBhela` or whatever one is comfortable with. Only restriction seems to be spaces in directory name.
+`Note:` Destination directory doesn't matter. Above is done to keep things together. `E:\Common_Lisp` is a Personal Preference. It could be `C:\BhelaBhela` or whichever path one is comfortable with. Only restriction seems to be spaces in directory name, in my experiments, roswell is unhappy with spaces in directory names.
 ### Setting up Roswell
 - Extracting executables <br/>
   - Extract `roswell_18.3.10.89_amd64.zip` into `E:\Common_Lisp\Roswell` <br/>
