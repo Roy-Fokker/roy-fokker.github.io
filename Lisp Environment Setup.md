@@ -1,5 +1,8 @@
 # Getting started with Common Lisp on Windows 7/10 64bit
 
+## Why?
+Below is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. All of what I've learned in setting up a Common Lisp development environment on MS Windows is condensed below.
+
 ## Alternatives 
 Listing these 1st incase you don't want to go through the hassle of setting up Emacs and Roswell
 - [Portacle](https://portacle.github.io/):- Does not require installation of any of below. It's a self contained zip. Bit of duplication of tools if you already have Git or Emacs installed.
@@ -74,7 +77,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
 - Creating and configuring init.el for Emacs to execute on launch
   - Emacs on Windows expects to find `init.el` file in `%AppData%\Roaming\.emacs.d`.<br/>
     This file has to be created manually. 
-  - File Open/Create command in Emacs is `Ctrl + x Ctrl + f` then typing the path of file you are interested in.<br/>
+  - File Open/Create command in Emacs is `Ctrl+x Ctrl+f` then typing the path of file you are interested in.<br/>
   For `init.el` this is `~/.emacs.d/init.el`
   - Configuring Package repository put following in `init.el` (at top of the file)
     ```common_lisp
@@ -91,11 +94,11 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
             (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
     (package-initialize)
     ```
-  - Save file with `Ctrl + x Ctrl + s`
+  - Save file with `Ctrl+x Ctrl+s`
 - Installing Packages
   - Start Emacs
-  - Do following `Alt + x` then type `package-list-package` then `Enter`. This refreshes local cache of available packages.
-  - Packages in Emacs are installed by pressing `Alt + x` then typing in `package-install` then `Enter` followed by package name
+  - Do following `Alt+x` then type `package-list-package` then `Enter`. This refreshes local cache of available packages.
+  - Packages in Emacs are installed by pressing `Alt+x` then typing in `package-install` then `Enter` followed by package name
     - Package Name: `slime`
     - Package Name: `auto-complete`
     - Package Name: `ac-slime`
@@ -106,7 +109,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
   - theme (optional)
     - Package Name: `spacemacs-theme`
 - Configuring Emacs to use packages <br/>
-  All of below are to be added to init.el bottom of the file. Remeber to save `Ctrl + x Ctrl + s`
+  All of below are to be added to init.el bottom of the file. Remember to save `Ctrl+x Ctrl+s`
   - Language/UTF-8 <br/>
     ```common_lisp
     ;; Set language locale and utf-8
@@ -169,12 +172,12 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
     (add-hook 'find-file-hook 'linum-mode)
     ```
   - Theme selection (optional) <br/>
-    Press `Alt + x` <br/>
+    Press `Alt+x` <br/>
     Type `customize-theme` <br/>
     This should bring up menu screen, where you can select the theme, including the `spacemacs-theme` which shows up as `spacemacs-dark` and `spacemacs-light`. <br/>
     Select the check box that interests you, and press `Save Theme Settings` button, and accept any `Warning dialog` telling you about dangers of theme scripts being dangerous.
 - After all these changes to `init.el`, Emacs will need to be restarted, for file to be loaded properly. <br/>
-  Internets says you can reload file using `Alt + x` `eval-buffer`. But this has produced mixed results, with many visual artifacts.
+  Internets says you can reload file using `Alt+x` `eval-buffer`. But this has produced mixed results, with many visual artifacts.
 
 ### Running SLIME REPL
 Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
