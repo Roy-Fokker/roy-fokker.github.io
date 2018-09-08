@@ -200,6 +200,7 @@ Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
   - `Ctrl+c Ctrl+c` compile current function/lisp form.
   - `Ctrl+c Ctrl+k` compiles whole file.
 - [Slime key index](https://www.common-lisp.net/project/slime/doc/html/Key-Index.html#Key-Index)
+
 ### Screenshot
 After all that work, below is how it looks.
 ![Emacs Editing Common Lisp](images/emacs_lisp_screenshot.png)
