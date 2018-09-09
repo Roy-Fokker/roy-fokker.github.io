@@ -3,7 +3,7 @@
 
 # In-progress
 - [Lisp Learning Plan](Lisp Learning Plan.md)
+- [Using ATL to create windows in C++](ATL Window Example.md)
 
 # Future
-- [Using ATL to create windows in C++](#)
 - [Programming AVR microcontroller with C++](#)
