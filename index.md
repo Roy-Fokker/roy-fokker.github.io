@@ -3,7 +3,7 @@
 
 # In-progress
 - [Lisp Learning Plan](Lisp Learning Plan.md)
-- [Using ATL to create windows in C++](ATL Window Example.md)
+- [ATL vs Win32 to create Windows application window in C++](ATL Window Example.md)
 
 # Future
 - [Programming AVR microcontroller with C++](#)
