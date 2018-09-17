@@ -82,7 +82,7 @@
 ---
 ## Build sizes
 | Build Type | Release (Kb) | Debug (Kb) |
-|---|---|---|
+| --- | --- | --- |
 | ATL | 26 | 188 |
 | Win32 | 19 | 116 |
 
