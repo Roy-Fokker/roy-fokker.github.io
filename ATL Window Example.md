@@ -79,6 +79,7 @@
     <ItemGroup />
   </Project>
   ```
+
 ---
 ## Build sizes
 | Build Type | Release (Kb) | Debug (Kb) |
