@@ -3,6 +3,9 @@
 ## Why?
 Below is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. All of what I've learned in setting up a Common Lisp development environment on MS Windows is condensed below.
 
+I have switch to using Spacemacs as preferred mechanism to edit and learn Lisp.
+Mostly because it's helpful, without me having to learn all strange Emacs shortcuts, by presenting a nice popup of options on pressing ```Space``` key
+
 ## Alternatives 
 Listing these 1st incase you don't want to go through the hassle of setting up Emacs and Roswell
 - [Portacle](https://portacle.github.io/):- Does not require installation of any of below. It's a self contained zip. Bit of duplication of tools if you already have Git or Emacs installed.
@@ -52,6 +55,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
 ## Tools to download
 - [Roswell - v 18.3.10.89 - x64](https://github.com/roswell/roswell/releases/download/v18.3.10.89/roswell_18.3.10.89_amd64.zip)
 - [Emacs - v 26.1 - x64](http://ftp.gnu.org/gnu/emacs/windows/emacs-26/emacs-26.1-x86_64.zip)
+- [Spacemacs](https://spacemacs.org)
 
 ## Setting up the tools
 `Note:` Destination directory doesn't matter. Above is done to keep things together. `E:\Common_Lisp` is a Personal Preference. It could be `C:\BhelaBhela` or whichever path one is comfortable with. Only restriction seems to be spaces in directory name, in my experiments, roswell is unhappy with spaces in directory names.
@@ -66,7 +70,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
   `ros run` <br/>
   This will start roswell, and it will automatically download latest windows version of SBCL into `%UserProfile%\.roswell`. At time of this writing 1.4.2 for windows.
 
-### Setting up Emacs
+### Setting up Basic Emacs
 - Extracting zipped files
   - Extract `emacs-26.1-x86_64.zip` into `E:\Common_Lisp\Emacs` <br/>
     `Note:` Emacs, will put files into `%AppData%\Roaming\.emacs.d`
@@ -74,8 +78,26 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
   Appended `E:\Common_Lisp\Emacs` to Windows PATH.
 - Creating shortcut <br/>
   To make things convinent, create shortcut in `E:\Common_Lisp\Emacs` to `E:\Common_Lisp\emacs\bin\runemacs.exe`
+
+### Setting up Spacemacs
+- Clone as per [spacemacs](https://spacemacs.org) instructions.
+- Copy cloned ```.emacs.d``` directory to your ```%APPDATA%``` folder.
+- Open emacs with shortcut created above. <br/>
+  This will trigger spacemacs to download and do some basic setup.
+  It will ask you questions during this process. I've agreed to defaults.
+- Open your ```.spacemacs``` file, by pressing ```Space```, ```f```, ```e```, ```d```.
+- Scroll down to till you see ```dotspacemacs-configuration-layers```
+  - Press ```o``` besides ```emacs-lisp``` under ```dotspacemacs-configuration-layers```
+- Type in ```common-lisp```
+- Scroll further down till you find ```dotspacemacs/user-config()```
+  - Type in ```(setq inferior-lisp-program "ros -Q run")``` before the corresponding bracket to ```(defun dotspacemacs/user-config()```
+- Save by pressing ```Escape``` then ```:w```
+- Restart Emacs by pressing ```Space```, ```q```, ```r``` <br/>
+  This will make emacs install the common lisp layer
+
+### Setting up Emacs without Spacemacs
 - Creating and configuring init.el for Emacs to execute on launch
-  - Emacs on Windows expects to find `init.el` file in `%AppData%\Roaming\.emacs.d`.<br/>
+  - Emacs on Windows expects to find `init.el` file in `%AppData%\.emacs.d`.<br/>
     This file has to be created manually. 
   - File Open/Create command in Emacs is `Ctrl+x Ctrl+f` then typing the path of file you are interested in.<br/>
   For `init.el` this is `~/.emacs.d/init.el`
