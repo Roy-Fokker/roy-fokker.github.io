@@ -1,3 +1,0 @@
-theme: jekyll-theme-midnight
-highlighter: rouge
-exclude: [.gitignore, _config.yml]

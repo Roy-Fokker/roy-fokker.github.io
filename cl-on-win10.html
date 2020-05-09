@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-05-09 Sat 17:16 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swap Buffer</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Neel Raiyani [Roy Fokker]">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/theme.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.18.0/min/vs/loader.js"></script>
+<script src="js/monaco-editor-code-block.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<header>
+<h1 class="title">Swap Buffer</h1>
+<p class="subtitle">Setting up Common Lisp on Windows 7/10 64bit</p>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org36c6b48">Why?</a></li>
+<li><a href="#orgc17a493">Tools to Download</a></li>
+<li><a href="#org9782194">The Setup</a></li>
+<li><a href="#org5f05461">Running REPL</a></li>
+<li><a href="#orgb64670e">Screenshot</a></li>
+<li><a href="#org2fb344f">Alternatives</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org36c6b48" class="outline-2">
+<h2 id="org36c6b48">Why?</h2>
+<div class="outline-text-2" id="text-org36c6b48">
+<p>
+Below is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. 
+All of what I've learned in setting up a Common Lisp development environment on MS Windows is condensed below.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc17a493" class="outline-2">
+<h2 id="orgc17a493">Tools to Download</h2>
+<div class="outline-text-2" id="text-orgc17a493">
+<p>
+Versions used were latest available at time of writing. Aim to get the latest releases of these.
+</p>
+<ul class="org-ul">
+<li><a href="http://ftp.gnu.org/gnu/emacs/windows/emacs-26/emacs-26.1-x86_64.zip">Emacs</a>: version 26.3</li>
+<li><a href="http://www.sbcl.org">SBCL</a>: version 2.0.4</li>
+<li><a href="https://github.com/roswell/roswell/releases">Roswell</a>: version 20.04.14.105</li>
+<li><a href="https://spacemacs.org">Spacemacs</a>: using <code>develop</code> branch.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9782194" class="outline-2">
+<h2 id="org9782194">The Setup</h2>
+<div class="outline-text-2" id="text-org9782194">
+<p>
+<b>Note:</b> Destination directory doesn't matter. Paths below are done to keep things together for my own sanity.
+It could be <code>C:\BhelaBhela</code> or whichever path one is comfortable with. 
+Only restriction seems to be spaces in directory name, in my experiments, roswell is unhappy with spaces in directory names.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org40a68d1"></a>SBCL by itself<br>
+<div class="outline-text-3" id="text-org40a68d1">
+<p>
+Simply installed via installer. Only configuration that had to be done was to set <code>Environment Variable</code>.
+</p>
+<ul class="org-ul">
+<li>SBCL was installed to <code>E:\Lisp\SBCL\</code></li>
+<li>Add new <code>Environment Variable</code> called <code>SBCL_HOME</code> and set it to <code>install directory</code> of SBCL.</li>
+<li>Add <code>SBCL install directory</code> to <code>PATH</code> variable.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orga266747"></a>SBCL via  Roswell<br>
+<div class="outline-text-3" id="text-orga266747">
+<ul class="org-ul">
+<li>Extract <code>roswell</code> from zip file to <code>E:\Lisp\Roswell</code>.</li>
+<li>Add <code>Roswell install directory</code> to <code>PATH</code>.</li>
+<li><p>
+Open Command Prompt and execute
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ros run
+</pre>
+</div>
+<p>
+This will start roswell, and it will automatically download latest windows version of SBCL.
+It will put SBCL into <code>%UserProfile%\.roswell</code>.
+</p></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org258b29c"></a>Quicklisp<br>
+<div class="outline-text-3" id="text-org258b29c">
+<ul class="org-ul">
+<li><p>
+Download <code>Quicklisp.lisp</code> from <a href="https://beta.quicklisp.org/quicklisp.lisp">https://beta.quicklisp.org/quicklisp.lisp</a>.
+I've downloaded it to <code>E:\Lisp\</code>. Command below was executed from same.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">curl -O https://beta.quicklisp.org/quicklisp.lisp
+</pre>
+</div></li>
+<li>Start SBCL, <code>sbcl</code> or <code>ros run</code>, depending on what you used.</li>
+<li><p>
+In the repl type, 
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #ff8c00;">(</span>load quicklisp.lisp<span style="color: #ff8c00;">)</span>
+<span style="color: #ff8c00;">(</span>quicklisp-quickstart:install<span style="color: #ff8c00;">)</span>
+<span style="color: #ff8c00;">(</span>ql:add-to-init-file<span style="color: #ff8c00;">)</span>
+</pre>
+</div></li>
+<li><code>quicklisp-quickstart:install</code> will download and install files into <code>%UserProfile%\quicklisp</code> directory.</li>
+<li><code>ql:add-to-init-file</code> will create <code>.sbclrc</code> file such that quicklisp is loaded when repl is started.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="orgf1ca307"></a>Emacs<br>
+<div class="outline-text-3" id="text-orgf1ca307">
+<ul class="org-ul">
+<li>Extract <code>Emacs</code> into <code>E:\emacs\</code>.</li>
+<li>Emacs expects to find <code>init.el</code> file in <code>%APPDATA%\.emacs.d</code> directory. Manually create this file.</li>
+</ul>
+</div>
+<ul class="org-ul">
+<li><a id="org6ee09fa"></a>If not using <code>Spacemacs</code><br>
+<div class="outline-text-4" id="text-org6ee09fa">
+<p>
+I started out using <code>spacemacs</code> but have now switched over to using emacs with my own config.
+</p>
+<ul class="org-ul">
+<li><p>
+Setup Packages package by adding following lines to <code>init.el</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #cd8b00;">;; </span><span style="color: #cd8b00;">------------------------------------------------------------------</span>
+<span style="color: #cd8b00;">;; </span><span style="color: #cd8b00;">Configure Package Archives</span>
+<span style="color: #ff8c00;">(</span><span style="color: #808bed;">require</span> '<span style="color: #409090;">package</span><span style="color: #ff8c00;">)</span> <span style="color: #cd8b00;">; </span><span style="color: #cd8b00;">package management</span>
+
+<span style="color: #cd8b00;">;; </span><span style="color: #cd8b00;">Don't load any packages by default</span>
+<span style="color: #ff8c00;">(</span><span style="color: #808bed;">setq</span> package-enable-at-startup nil<span style="color: #ff8c00;">)</span>
+
+<span style="color: #cd8b00;">;; </span><span style="color: #cd8b00;">Where to look for packages</span>
+<span style="color: #ff8c00;">(</span>add-to-list 'package-archives '<span style="color: #ff1493;">(</span><span style="color: #ffcd8b; background-color: #404040;">"org"</span>   . <span style="color: #ffcd8b; background-color: #404040;">"http://orgmode.org/elpa/"</span><span style="color: #ff1493;">)</span> t<span style="color: #ff8c00;">)</span>
+<span style="color: #ff8c00;">(</span>add-to-list 'package-archives '<span style="color: #ff1493;">(</span><span style="color: #ffcd8b; background-color: #404040;">"elpa"</span>  . <span style="color: #ffcd8b; background-color: #404040;">"http://elpa.gnu.org/packages/"</span><span style="color: #ff1493;">)</span> t<span style="color: #ff8c00;">)</span>
+<span style="color: #ff8c00;">(</span>add-to-list 'package-archives '<span style="color: #ff1493;">(</span><span style="color: #ffcd8b; background-color: #404040;">"melpa"</span> . <span style="color: #ffcd8b; background-color: #404040;">"http://melpa.org/packages/"</span><span style="color: #ff1493;">)</span> t<span style="color: #ff8c00;">)</span>
+
+<span style="color: #ff8c00;">(</span>package-initialize<span style="color: #ff8c00;">)</span> <span style="color: #cd8b00;">;; </span><span style="color: #cd8b00;">initialize package.el</span>
+
+<span style="color: #cd8b00;">;; </span><span style="color: #cd8b00;">install use-package if it's not present</span>
+<span style="color: #ff8c00;">(</span><span style="color: #808bed;">unless</span> <span style="color: #ff1493;">(</span>package-installed-p 'use-package<span style="color: #ff1493;">)</span>
+  <span style="color: #ff1493;">(</span>package-refresh-contents<span style="color: #ff1493;">)</span>
+  <span style="color: #ff1493;">(</span>package-install 'use-package<span style="color: #ff1493;">)</span><span style="color: #ff8c00;">)</span>
+</pre>
+</div></li>
+<li>I am using <code>use-package</code> to help manage the packages in emacs.
+It has pretty good <a href="https://jwiegley.github.io/use-package/">documentation</a> on how to use it. So I won't repeat the steps here.
+Alternatively, it is possible to use built-in emacs package manager.
+Which can be started by typing <code>Alt+x</code> then <code>package-list-packages</code>.</li>
+<li>Below are the packages I have installed.
+Full configuration can be viewed at <a href="https://github.com/Roy-Fokker/dot-files/blob/master/emacs-config.org">Emacs-Config</a>
+<ul class="org-ul">
+<li>rainbow-delimiters</li>
+<li>yasnippet</li>
+<li>yasnippet-snippet</li>
+<li>common-lisp-snippets</li>
+<li>company</li>
+<li>company-quickhelp</li>
+<li>flycheck</li>
+<li>paredit</li>
+<li>slime</li>
+<li>slime-company</li>
+</ul></li>
+<li>Tell emacs how to start slime, in the <code>init.el</code>
+<ul class="org-ul">
+<li><p>
+It not using Roswell
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #ff8c00;">(</span><span style="color: #808bed;">setq</span> inferior-lisp-program <span style="color: #ffcd8b; background-color: #404040;">"sbcl"</span><span style="color: #ff8c00;">)</span>
+</pre>
+</div></li>
+<li><p>
+If using Roswell 
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #ff8c00;">(</span><span style="color: #808bed;">setq</span> inferior-lisp-program <span style="color: #ffcd8b; background-color: #404040;">"ros -Q run"</span><span style="color: #ff8c00;">)</span>
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org5c80928"></a>If using <code>Spacemacs</code><br>
+<div class="outline-text-4" id="text-org5c80928">
+<ul class="org-ul">
+<li>Clone as per <a href="https://spacemacs.org">spacemacs</a> instructions.</li>
+<li>Copy cloned <code>.emacs.d</code> directory to your <code>%APPDATA%</code> folder.</li>
+<li>Open emacs.
+This will trigger spacemacs to download and do some basic setup.
+It will ask you questions during this process. I've agreed to defaults.</li>
+<li>Open your <code>.spacemacs</code> file, by pressing <code>Space f e d</code>.</li>
+<li>Scroll down to till you see <code>dotspacemacs-configuration-layers</code></li>
+<li>Press <code>o</code> besides <code>emacs-lisp</code> under <code>dotspacemacs-configuration-layers</code></li>
+<li>Type in <code>common-lisp</code></li>
+<li>Scroll further down till you find <code>dotspacemacs/user-config()</code></li>
+<li>Type in <code>(setq inferior-lisp-program "ros -Q run")</code> before the corresponding bracket to <code>defun dotspacemacs/user-config()</code></li>
+<li>Save by pressing <code>Escape</code> then <code>:w</code></li>
+<li>Restart Emacs by pressing <code>Space q r</code>
+This will make <code>spacemacs</code> install the common lisp layer</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org5f05461" class="outline-2">
+<h2 id="org5f05461">Running REPL</h2>
+<div class="outline-text-2" id="text-org5f05461">
+<p>
+Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb64670e" class="outline-2">
+<h2 id="orgb64670e">Screenshot</h2>
+<div class="outline-text-2" id="text-orgb64670e">
+
+<figure>
+<img src="images/emacs_lisp_screenshot.png" alt="emacs_lisp_screenshot.png">
+
+</figure>
+</div>
+</div>
+
+<div id="outline-container-org2fb344f" class="outline-2">
+<h2 id="org2fb344f">Alternatives</h2>
+<div class="outline-text-2" id="text-org2fb344f">
+<p>
+Listing these 1st incase you don't want to go through the hassle of setting up Emacs and Roswell
+</p>
+<ul class="org-ul">
+<li><a href="https://portacle.github.io/">Portacle</a>:- Does not require installation of any of below. It's a self contained zip. 
+Bit of duplication of tools if you already have Git or Emacs installed.</li>
+<li><a href="https://www.sublimetext.com/3">Sublime Text 3</a>:- You'll need to install Roswell or SBCL
+<ul class="org-ul">
+<li>Packages
+<ul class="org-ul">
+<li>SublimeREPL</li>
+<li>Paredit</li>
+<li>BracketHighlighter</li>
+</ul></li>
+<li>Add configuration for <code>Roswell</code>, if using <code>Roswell</code>, as follows 
+<ul class="org-ul">
+<li>Files are in <code>%APPDATA%\Roaming\Sublime Text 3\Packages\SublimeREPL\config\CommonLisp\</code></li>
+<li><p>
+Edit <code>Main.sublime-menu</code> by adding following on Line 15 after <code>"children":{{{BO}}}</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #ff8c00;">{</span>
+    <span style="color: #ffcd8b; background-color: #404040;">"command"</span>: <span style="color: #ffcd8b; background-color: #404040;">"repl_open"</span>,
+    <span style="color: #ffcd8b; background-color: #404040;">"caption"</span>: <span style="color: #ffcd8b; background-color: #404040;">"Roswell"</span>,
+    <span style="color: #ffcd8b; background-color: #404040;">"id"</span>: <span style="color: #ffcd8b; background-color: #404040;">"repl_roswell"</span>,
+    <span style="color: #ffcd8b; background-color: #404040;">"mnemonic"</span>: <span style="color: #ffcd8b; background-color: #404040;">"R"</span>,
+    <span style="color: #ffcd8b; background-color: #404040;">"args"</span>: <span style="color: #ff1493;">{</span>
+        <span style="color: #ffcd8b; background-color: #404040;">"type"</span>: <span style="color: #ffcd8b; background-color: #404040;">"subprocess"</span>,
+        <span style="color: #ffcd8b; background-color: #404040;">"encoding"</span>: <span style="color: #ffcd8b; background-color: #404040;">"utf8"</span>,
+        <span style="color: #ffcd8b; background-color: #404040;">"external_id"</span>: <span style="color: #ffcd8b; background-color: #404040;">"lisp"</span>,
+        <span style="color: #ffcd8b; background-color: #404040;">"cmd"</span>: <span style="color: #7fff00;">[</span><span style="color: #ffcd8b; background-color: #404040;">"ros"</span>, <span style="color: #ffcd8b; background-color: #404040;">"run"</span><span style="color: #7fff00;">]</span>,
+        <span style="color: #ffcd8b; background-color: #404040;">"soft_quit"</span>: <span style="color: #ffcd8b; background-color: #404040;">"\n(quit)\n"</span>,
+        <span style="color: #ffcd8b; background-color: #404040;">"cwd"</span>: <span style="color: #ffcd8b; background-color: #404040;">"$folder"</span>,
+        <span style="color: #ffcd8b; background-color: #404040;">"cmd_postfix"</span>: <span style="color: #ffcd8b; background-color: #404040;">"\n"</span>,
+        <span style="color: #ffcd8b; background-color: #404040;">"syntax"</span>: <span style="color: #ffcd8b; background-color: #404040;">"Packages/Lisp/Lisp.tmLanguage"</span>
+    <span style="color: #ff1493;">}</span>
+<span style="color: #ff8c00;">}</span>,
+</pre>
+</div></li>
+<li><p>
+Edit <code>Default.sublime-commands</code> by adding following on Line 2 after <code>{{{BO}}}</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-js"><span style="color: #ff8c00;">{</span> 
+    <span style="color: #ffcd8b; background-color: #404040;">"caption"</span>: <span style="color: #ffcd8b; background-color: #404040;">"SublimeREPL: Roswell"</span>,
+    <span style="color: #ffcd8b; background-color: #404040;">"command"</span>: <span style="color: #ffcd8b; background-color: #404040;">"run_existing_window_command"</span>, 
+    <span style="color: #ffcd8b; background-color: #404040;">"args"</span>:
+    <span style="color: #ff1493;">{</span>
+        <span style="color: #ffcd8b; background-color: #404040;">"id"</span>: <span style="color: #ffcd8b; background-color: #404040;">"repl_roswell"</span>,
+        <span style="color: #ffcd8b; background-color: #404040;">"file"</span>: <span style="color: #ffcd8b; background-color: #404040;">"config/CommonLisp/Main.sublime-menu"</span>
+    <span style="color: #ff1493;">}</span>
+<span style="color: #ff8c00;">}</span>,
+</pre>
+</div></li>
+</ul></li>
+</ul></li>
+<li><a href="https://code.visualstudio.com/">VSCode</a>:- Again will need either Roswell or SBCL installed
+<ul class="org-ul">
+<li>Extensions
+<ul class="org-ul">
+<li>Lisp syntax highlight</li>
+<li>Rainbow Brackets 2</li>
+<li>SendToREPL: There are several REPL extensions for VSCode, but I didn't like any of them. 
+This one comes close, to Emacs like experience</li>
+</ul></li>
+<li>Usage: Open VSCode Terminal and start Lisp Repl from within VSCode</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Neel Raiyani [Roy Fokker]</p>
+<p class="date">Created: 2020-05-09 Sat 17:16</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

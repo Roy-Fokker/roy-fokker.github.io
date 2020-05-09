@@ -1,0 +1,34 @@
+#+SETUPFILE: header.org
+#+SUBTITLE: A cup of coffee in hand.
+#+OPTIONS: H:1 toc:nil num:nil
+
+* Articles
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: articles
+  :END:
+** [[file:cl-on-win10.org][Setting up a Common Lisp environment on Windows.]]
+   Below is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. 
+   All of what I've learned in setting up a Common Lisp development environment on MS Windows is condensed below.
+
+** [[https://www.swapbuffer.com/roguelike-cpp/][Roguelike in C++17]]
+   In-progress series of pages that attempts to make a simple roguelike in C++17 using libTCOD.
+
+* Snippets
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: snippets
+  :END:
+
+
+* Screenshot of the Day
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: sidebar
+  :END:
+
+* Community
+  :PROPERTIES:
+  :HTML_CONTAINER_CLASS: sidebar
+  :END:
+
+  - IRC: [[irc://irc.afternet.org/#gamedev][#GameDev on Afternet]]
+  - GitHub: [[https://www.github.com/roy-fokker][Github]]
+
