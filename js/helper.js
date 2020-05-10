@@ -6,5 +6,5 @@ window.onload = function () {
     })
 
     var title = document.querySelector("header>h1");
-    title.innerHTML = "<a href='index.html'>" + title.textContent + "</a>";
+    title.innerHTML = "<a href='/index.html'>" + title.textContent + "</a>";
 }
