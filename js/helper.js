@@ -4,4 +4,7 @@ window.onload = function () {
         var text = elem.textContent;
         elem.innerHTML = "<a href='#content'>" + text + "</a>";
     })
+
+    var title = document.querySelector("header>h1");
+    title.innerHTML = "<a href='index.html'>" + title.textContent + "</a>";
 }

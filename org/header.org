@@ -1,4 +1,4 @@
-#+TITLE: [[file:index.org][Swap Buffer]]
+#+TITLE: Swap Buffer
 #+AUTHOR: Neel Raiyani [Roy Fokker]
 #+EMAIL: nraiyani+sw@gmail.com
 #+LANGUAGE: en
@@ -11,7 +11,7 @@
 # Export to HTML5
 #+HTML_DOCTYPE: html5
 #+HTML_HEAD: <meta http-equiv="X-UA-Compatible" content="IE=edge">
-#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1">
+#+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 # Theme
 #+HTML_HEAD: <link href="css/theme.css" rel="stylesheet" type="text/css">

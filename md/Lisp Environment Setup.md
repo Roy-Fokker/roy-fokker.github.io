@@ -1,10 +1,12 @@
-# Getting started with Common Lisp on Windows 7/10 64bit
+---
+title: Getting started with Common Lisp on Windows 7/10 64bit
+---
 
 ## Why?
-Below is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. All of what I've learned in setting up a Common Lisp development environment on MS Windows is condensed below.
-
-I have switch to using Spacemacs as preferred mechanism to edit and learn Lisp.
-Mostly because it's helpful, without me having to learn all strange Emacs shortcuts, by presenting a nice popup of options on pressing ```Space``` key
+  Below is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. All of what I've learned in setting up a Common Lisp development environment on MS Windows is condensed below.
+  
+  I have switch to using Spacemacs as preferred mechanism to edit and learn Lisp.
+  Mostly because it's helpful, without me having to learn all strange Emacs shortcuts, by presenting a nice popup of options on pressing ```Space``` key
 
 ## Alternatives 
 Listing these 1st incase you don't want to go through the hassle of setting up Emacs and Roswell
@@ -16,7 +18,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
     - BracketHighlighter
   - Add configuration for `Roswell`, if using Roswell, as follows 
     - Files are in `%APPDATA%\Roaming\Sublime Text 3\Packages\SublimeREPL\config\CommonLisp\`
-    - Edit `Main.sublime-menu` by adding following on Line 15 after `"children":[`
+    - Edit `Main.sublime-menu` by adding following on Line 15 after `"children":[`  
       ```json
       { "command": "repl_open",
         "caption": "Roswell",
@@ -34,7 +36,7 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
           }
       },
       ```
-    - Edit `Default.sublime-commands` by adding following on Line 2 after `[`
+    - Edit `Default.sublime-commands` by adding following on Line 2 after `[`  
       ```json
       { "caption": "SublimeREPL: Roswell",
         "command": "run_existing_window_command", "args":
@@ -201,10 +203,10 @@ Listing these 1st incase you don't want to go through the hassle of setting up E
 - After all these changes to `init.el`, Emacs will need to be restarted, for file to be loaded properly. <br/>
   Internets says you can reload file using `Alt+x` `eval-buffer`. But this has produced mixed results, with many visual artifacts.
 
-### Running SLIME REPL
+## Running SLIME REPL
 Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
 
-### My frequently used Emacs shortcuts
+## My frequently used Emacs shortcuts
 - `TAB` in many places will allow/show auto-complete options.
 - Create new file buffer :- `Ctrl+x Ctrl+f` followed by file directory and name. If file doesn't exist Emacs will create it on save.
 - Save file buffer :- `Ctrl+x Ctrl+s`
@@ -223,7 +225,7 @@ Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
   - `Ctrl+c Ctrl+k` compiles whole file.
 - [Slime key index](https://www.common-lisp.net/project/slime/doc/html/Key-Index.html#Key-Index)
 
-### Screenshot
+## Screenshot
 After all that work, below is how it looks.
 ![Emacs Editing Common Lisp](images/emacs_lisp_screenshot.png)
 It has 3 frames/windows
@@ -231,5 +233,5 @@ It has 3 frames/windows
 - `Right Top Frame`:- Windows CMD shell
 - `Right Bottom Frame`:- SBCL REPL via Roswell and Slime
 
-### Related
+## Related
   [Lisp Learning Plan](Lisp Learning Plan.md)
