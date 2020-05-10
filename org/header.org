@@ -14,13 +14,13 @@
 #+HTML_HEAD: <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 # Theme
-#+HTML_HEAD: <link href="css/theme.css" rel="stylesheet" type="text/css">
+#+HTML_HEAD: <link href="/css/theme.css" rel="stylesheet" type="text/css">
 
 # Javascript for Monaco Editor Code Blocks
 #+HTML_HEAD: <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
 #+HTML_HEAD: <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.18.0/min/vs/loader.js"></script>
-#+HTML_HEAD: <script src="js/monaco-editor-code-block.js"></script>
-#+HTML_HEAD: <script src="js/helper.js"></script>
+#+HTML_HEAD: <script src="/js/monaco-editor-code-block.js"></script>
+#+HTML_HEAD: <script src="/js/helper.js"></script>
 
 # How to use...
 # --- <ui-code url="https://raw.githubusercontent.com/Roy-Fokker/roguelike/master/src/main.cpp" width=500 commentWidth=500></ui-code>

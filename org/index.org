@@ -13,6 +13,9 @@
 ** [[https://www.swapbuffer.com/roguelike-cpp/][Roguelike in C++17]]
    In-progress series of pages that attempts to make a simple roguelike in C++17 using libTCOD.
 
+** [[https://www.swapbuffer.com/Basic-Project][Basic cmake project]]
+   Basic cmake project structure for C++17 using =vcpkg= and =msvc=
+
 * Snippets
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: snippets
