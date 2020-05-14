@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-05-14 Thu 19:25 -->
+<!-- 2020-05-14 Thu 19:38 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Swap Buffer</title>
@@ -69,7 +69,7 @@ to latest available stable releases.
 <div class="outline-text-2" id="text-orgdb87b26">
 <p>
 <b>Note:</b> One would think this wouldn't matter. And if you are familar with windows it 
-probably doesn't matter. This order is least hassle for me.  
+probably doesn't matter. This order is least hassle for me. <br>
 <b>Note:</b> Destination directories don't matter. As long as you are willing to mess
 around with Windows Path and Environment Variables. Paths below are how I've set 
 it up on my main machine.
@@ -77,14 +77,14 @@ it up on my main machine.
 </div>
 
 <ul class="org-ul">
-<li><a id="org65b03fb"></a>Visual Studio Code<br>
-<div class="outline-text-3" id="text-org65b03fb">
+<li><a id="org4549e98"></a>Visual Studio Code<br>
+<div class="outline-text-3" id="text-org4549e98">
 <p>
 Normally, my preference is to install tooling software into <code>Program Files</code> folder.
 However, VSCode is part of <i>modern</i> applications group that doesn't follow OS prefered 
 practices. As such, it really really, wants to install in to <code>%UserProfile%</code> directory.
 I've learned this hard way, as my initial install was in to <code>Program Files</code> and number 
-of annoyances forced me to uninstall and reinstall it.  
+of annoyances forced me to uninstall and reinstall it.  <br>
 Moral, let it install in it's prefered default directory. Which for me happens to be
 <code>C:\Users\&lt;Name&gt;\AppData\Local\Programs\Microsoft VS Code</code>
 </p>
@@ -147,7 +147,7 @@ Now Msys2 is not one application. But rather a <i>System</i> that can install ot
 <p>
 vcpkg requires you already have a C++ compiler and Git installed.
 Before this point I've already installed VS2019 and Git for Windows. After this
-it's pretty easy to just follow the instructions on vcpkg site.
+it's pretty easy to just follow the instructions on vcpkg site.<br>
 I cloned the repository to <code>D:/Projects/CPP/.packages/vcpkg</code>. Why such an odd path?
 It's because I misunderstood how vcpkg works. But the path doesn't matter as long 
 as environment variable are setup properly, which is described in configuration section.
@@ -158,25 +158,25 @@ as environment variable are setup properly, which is described in configuration 
 <li><a id="org1bb670f"></a>Ninja<br>
 <div class="outline-text-3" id="text-org1bb670f">
 <p>
-Ninja has no installer, it's just a singular executable.
+Ninja has no installer, it's just a singular executable.<br>
 I've put it in <code>E:/Applications/ninja/</code>
 </p>
 </div>
 </li>
 
-<li><a id="org14476e7"></a>Emacs<br>
-<div class="outline-text-3" id="text-org14476e7">
+<li><a id="org92da1a2"></a>Emacs<br>
+<div class="outline-text-3" id="text-org92da1a2">
 <p>
 Emacs too has no installer, I downloaded the 64bit version. There are couple of
-options, I just got the biggest zip file (210MB).
+options, I just got the biggest zip file (210MB).<br>
 I've put it in <code>E:/Applications/Emacs-26.3</code>. Emacs version was 26.3 at time of
 writing.
 </p>
 </div>
 </li>
 
-<li><a id="org7bab28e"></a>Windows Terminal<br>
-<div class="outline-text-3" id="text-org7bab28e">
+<li><a id="orgb1cdb54"></a>Windows Terminal<br>
+<div class="outline-text-3" id="text-orgb1cdb54">
 <p>
 No installer here, just used version from Windows Store.
 </p>
@@ -195,8 +195,8 @@ Most of the configuration is install some extensions for the editors.
 </div>
 
 <ul class="org-ul">
-<li><a id="org4549e98"></a>Visual Studio Code<br>
-<div class="outline-text-3" id="text-org4549e98">
+<li><a id="org3b12d07"></a>Visual Studio Code<br>
+<div class="outline-text-3" id="text-org3b12d07">
 <p>
 Out of the box vscode isn't a good C++ editor. So to fix that I've gotten following
 extensions installed using vscode's extensions manager.
@@ -211,8 +211,8 @@ extensions installed using vscode's extensions manager.
 </ul>
 </div>
 <ul class="org-ul">
-<li><a id="orgcef2cc9"></a>Screenshot<br>
-<div class="outline-text-4" id="text-orgcef2cc9">
+<li><a id="orgf301507"></a>Screenshot<br>
+<div class="outline-text-4" id="text-orgf301507">
 
 <figure>
 <img src="../../images/vscode-cpp-cmake.png" alt="vscode-cpp-cmake.png">
@@ -239,8 +239,8 @@ everything else other than rainbow braces.</li>
 </ul>
 </div>
 <ul class="org-ul">
-<li><a id="orgf301507"></a>Screenshot<br>
-<div class="outline-text-4" id="text-orgf301507">
+<li><a id="org0872204"></a>Screenshot<br>
+<div class="outline-text-4" id="text-org0872204">
 
 <figure>
 <img src="../../images/vs2019-cpp.png" alt="vs2019-cpp.png">
@@ -257,9 +257,9 @@ everything else other than rainbow braces.</li>
 Open the MSys2 terminal and install following packages.
 </p>
 <ul class="org-ul">
-<li>mingw-w64-x86<sub>64</sub>-toolchain: for gcc and related tools</li>
-<li>mingw-w64-x86<sub>64</sub>-clang: for clang and releated tools</li>
-<li>mingw-w64-x86<sub>64</sub>-clang-tools-extra</li>
+<li>mingw-w64-x86_64-toolchain: for gcc and related tools</li>
+<li>mingw-w64-x86_64-clang: for clang and releated tools</li>
+<li>mingw-w64-x86_64-clang-tools-extra</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-shell">pacman -Syuu
@@ -271,8 +271,8 @@ pacman -S mingw-w64-x86_64-clang-tools-extra
 </div>
 </li>
 
-<li><a id="org92da1a2"></a>Emacs<br>
-<div class="outline-text-3" id="text-org92da1a2">
+<li><a id="org3603a26"></a>Emacs<br>
+<div class="outline-text-3" id="text-org3603a26">
 <p>
 Major reason to get Emacs is for <code>Magit</code>. It's completely optional. But Magit is amazing
 git ui. It can be installed via Emacs Package Manager.
@@ -291,7 +291,7 @@ git ui. It can be installed via Emacs Package Manager.
 Windows environment PATHs are location sensitive. I did not know this for longest time.
 Meaning order a directory appears in the PATH matters. Windows will stop searching for 
 an executable/a program, on 1st hit in the PATH. Most instructions on the webs mention 
-appending to PATH. I think it should be <b>PRE</b>-pending to PATH.
+appending to PATH. I think it should be <b>PRE</b>-pending to PATH.<br>
 I've added following applications' directories to Path, in order of appearance
 </p>
 <ul class="org-ul">
@@ -303,11 +303,22 @@ I've added following applications' directories to Path, in order of appearance
 </ul>
 </div>
 </li>
+<li><a id="org9b87637"></a>Variables<br>
+<div class="outline-text-4" id="text-org9b87637">
+<p>
+I've added following variables mostly for vcpkg
+</p>
+<ul class="org-ul">
+<li>VCPKG_DEFAULT_TRIPLET: x64-windows</li>
+<li>VCPKG_ROOT: <i>&lt;vcpkg directory&gt;</i></li>
+</ul>
+</div>
+</li>
 </ul>
 </li>
 
-<li><a id="orgb1cdb54"></a>Windows Terminal<br>
-<div class="outline-text-3" id="text-orgb1cdb54">
+<li><a id="org8c22da9"></a>Windows Terminal<br>
+<div class="outline-text-3" id="text-org8c22da9">
 <p>
 I use this as my primary terminal. In order to get <code>VS2019 Cmd</code>, <code>Git Bash</code> and <code>Msys2 Bash</code> 
 following have been added to settings.json

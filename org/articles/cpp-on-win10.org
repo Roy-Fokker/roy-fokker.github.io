@@ -21,7 +21,7 @@
 
 * The Installations
   *Note:* One would think this wouldn't matter. And if you are familar with windows it 
-  probably doesn't matter. This order is least hassle for me.  
+  probably doesn't matter. This order is least hassle for me. \\
   *Note:* Destination directories don't matter. As long as you are willing to mess
   around with Windows Path and Environment Variables. Paths below are how I've set 
   it up on my main machine.
@@ -31,7 +31,7 @@
    However, VSCode is part of /modern/ applications group that doesn't follow OS prefered 
    practices. As such, it really really, wants to install in to =%UserProfile%= directory.
    I've learned this hard way, as my initial install was in to =Program Files= and number 
-   of annoyances forced me to uninstall and reinstall it.  
+   of annoyances forced me to uninstall and reinstall it.  \\
    Moral, let it install in it's prefered default directory. Which for me happens to be
    =C:\Users\<Name>\AppData\Local\Programs\Microsoft VS Code=
 
@@ -68,18 +68,18 @@
 ** vcpkg
    vcpkg requires you already have a C++ compiler and Git installed.
    Before this point I've already installed VS2019 and Git for Windows. After this
-   it's pretty easy to just follow the instructions on vcpkg site.
+   it's pretty easy to just follow the instructions on vcpkg site.\\
    I cloned the repository to =D:/Projects/CPP/.packages/vcpkg=. Why such an odd path?
    It's because I misunderstood how vcpkg works. But the path doesn't matter as long 
    as environment variable are setup properly, which is described in configuration section.
 
 ** Ninja
-   Ninja has no installer, it's just a singular executable.
+   Ninja has no installer, it's just a singular executable.\\
    I've put it in =E:/Applications/ninja/=
 
 ** Emacs
    Emacs too has no installer, I downloaded the 64bit version. There are couple of
-   options, I just got the biggest zip file (210MB).
+   options, I just got the biggest zip file (210MB).\\
    I've put it in =E:/Applications/Emacs-26.3=. Emacs version was 26.3 at time of
    writing.
 
@@ -136,13 +136,17 @@
    Windows environment PATHs are location sensitive. I did not know this for longest time.
    Meaning order a directory appears in the PATH matters. Windows will stop searching for 
    an executable/a program, on 1st hit in the PATH. Most instructions on the webs mention 
-   appending to PATH. I think it should be *PRE*-pending to PATH.
+   appending to PATH. I think it should be *PRE*-pending to PATH.\\
    I've added following applications' directories to Path, in order of appearance
    - ninja
    - vcpkg
    - CMake
    - MSys2
    - Git
+*** Variables
+    I've added following variables mostly for vcpkg
+    - VCPKG_DEFAULT_TRIPLET: x64-windows
+    - VCPKG_ROOT: /<vcpkg directory>/
 
 ** Windows Terminal
    I use this as my primary terminal. In order to get =VS2019 Cmd=, =Git Bash= and =Msys2 Bash= 
