@@ -6,14 +6,17 @@
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: articles
   :END:
-** [[file:articles/cl-on-win10.org][Setting up a Common Lisp environment on Windows.]]   :Common_Lisp:Windows10:
-   Below is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. 
+** [[file:articles/cpp-on-win10.org][Setting up C++ on Windows]]                          :Cpp17:CMake:Windows10:
+   This is how I've got my windows machine setup for C++ Development.
+
+** [[file:articles/cl-on-win10.org][Setting up a Common Lisp environment on Windows.]]  :Common_Lisp:Windows10:
+   This is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. 
    All of what I've learned in setting up a Common Lisp development environment on MS Windows is condensed below.
 
 ** [[https://www.swapbuffer.com/roguelike-cpp/][Roguelike in C++17]]                                 :Windows10:Cpp17:CMake:
    In-progress series of pages that attempts to make a simple roguelike in C++17 using libTCOD.
 
-** [[https://www.swapbuffer.com/Basic-Project][Basic cmake project]] :Windows10:Cpp17:CMake:
+** [[https://www.swapbuffer.com/Basic-Project][Basic cmake project]]                                :Windows10:Cpp17:CMake:
    Basic cmake project structure for C++17 using =vcpkg= and =msvc=
 
 * Snippets

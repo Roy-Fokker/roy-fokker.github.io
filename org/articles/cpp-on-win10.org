@@ -1,0 +1,188 @@
+#+SETUPFILE: ../header.org
+#+SUBTITLE: Setting up C++ on Windows 7/10 64bit
+#+OPTIONS: H:1 num:nil
+
+* Why?
+  Below is setup for C++ that I have used for my Windows based C++ programming.
+  This setup is *one* way, the way that works best for my percularities.
+
+* Tools to Download
+  Versions used were latest available at time of writing. I keep the tools current
+  to latest available stable releases.
+  - [[https://code.visualstudio.com/][Visual Studio Code]](vscode)
+  - [[https://visualstudio.microsoft.com/vs/][Visual Studio 2019 Community]](vs2019)
+  - [[https://gitforwindows.org/][Git for Windows]](git)
+  - [[https://cmake.org/][CMake]]
+  - [[https://www.msys2.org/][MSys2 64bit]](msys)
+  - [[https://vcpkg.readthedocs.io/en/latest/][vcpkg]]
+  - [[https://ninja-build.org/][Ninja]]
+  - [[https://github.com/Microsoft/Terminal][Windows Terminal]]
+  - [[https://www.gnu.org/software/emacs/][Emacs]]
+
+* The Installations
+  *Note:* One would think this wouldn't matter. And if you are familar with windows it 
+  probably doesn't matter. This order is least hassle for me.  
+  *Note:* Destination directories don't matter. As long as you are willing to mess
+  around with Windows Path and Environment Variables. Paths below are how I've set 
+  it up on my main machine.
+
+** Visual Studio Code
+   Normally, my preference is to install tooling software into =Program Files= folder.
+   However, VSCode is part of /modern/ applications group that doesn't follow OS prefered 
+   practices. As such, it really really, wants to install in to =%UserProfile%= directory.
+   I've learned this hard way, as my initial install was in to =Program Files= and number 
+   of annoyances forced me to uninstall and reinstall it.  
+   Moral, let it install in it's prefered default directory. Which for me happens to be
+   =C:\Users\<Name>\AppData\Local\Programs\Microsoft VS Code=
+
+** Visual Studio 2019 Community
+   The installer for VS2019 is famously /unique/. I've installed it using following:
+   - 'Workloads'
+     - Desktop development with C++
+     - Game development with C++
+     - Linux development with C++
+     - Universal Windows Platform development
+     - Python development
+     - .NET desktop development
+   - 'Individual Components'
+     - C++ ATL for latest v142 build tools
+     - C++/WinRT
+     - C++ CMake tools for Windows
+     - C++ AddressSanitizers
+     - C++ Modules
+     - Test Adapters for Boost.Test
+     - Test Adapters for Google Test
+     - Image and 3D model editors
+     - Graphics debugger and GPU profiler for DirectX
+     - DGML editor
+     - Class Designer
+     - NuGet package manager
+
+** Git for Windows and CMake
+   Downloaded 64bit version and installed to =Program Files=. Pretty hassle free.
+
+** MSys2 64bit
+   Now Msys2 is not one application. But rather a /System/ that can install other
+   \*nix applications/programs. I've installed it to =e:/msys2/=.
+
+** vcpkg
+   vcpkg requires you already have a C++ compiler and Git installed.
+   Before this point I've already installed VS2019 and Git for Windows. After this
+   it's pretty easy to just follow the instructions on vcpkg site.
+   I cloned the repository to =D:/Projects/CPP/.packages/vcpkg=. Why such an odd path?
+   It's because I misunderstood how vcpkg works. But the path doesn't matter as long 
+   as environment variable are setup properly, which is described in configuration section.
+
+** Ninja
+   Ninja has no installer, it's just a singular executable.
+   I've put it in =E:/Applications/ninja/=
+
+** Emacs
+   Emacs too has no installer, I downloaded the 64bit version. There are couple of
+   options, I just got the biggest zip file (210MB).
+   I've put it in =E:/Applications/Emacs-26.3=. Emacs version was 26.3 at time of
+   writing.
+
+** Windows Terminal
+   No installer here, just used version from Windows Store.
+
+* Per tool configurations
+  These are optional for most part, I use them to make development experience nicer.
+  Most of the configuration is install some extensions for the editors.
+
+** Visual Studio Code
+   Out of the box vscode isn't a good C++ editor. So to fix that I've gotten following
+   extensions installed using vscode's extensions manager.
+   - [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools][C/C++]]: Syntax Highlighting for C++
+   - [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools][CMake Tools]]: Execute CMake builds from vscode
+   - [[https://marketplace.visualstudio.com/items?itemName=twxs.cmake][CMake for VisualStudio Code]]: CMake Syntax Highlighting
+   - [[https://marketplace.visualstudio.com/items?itemName=TimGJones.hlsltools][HLSL Tools for VS Code]]: HLSL and GLSL Syntax Highlighting
+   - [[https://marketplace.visualstudio.com/items?itemName=surajbarkale.ninja][Ninja Build]]: Ninja build syntax highlight
+   - [[https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2][Bracket Pair Colorizer 2]]: Colorizer bracket pairs.
+*** Screenshot
+    [[file:../../images/vscode-cpp-cmake.png]]
+
+** Visual Studo 2019 Community
+   VS2019 is heavy IDE, it does a lot. Some would say none of it well. I think it has 
+   good bits, okay bits, and bad bits. Big software with many moving bits. Primary reason
+   to install it is to get the MSVC Build Tools, and the C++ Debugger. Which miles better
+   than the alternatives.
+   Extensions installed via it's Extensions Manager are:
+   - [[https://github.com/tgjones/HlslTools][HLSL Tools]]: HLSL and GLSL Syntax Highlighting.
+   - [[https://marketplace.visualstudio.com/items?itemName=TomasRestrepo.Viasfora][Viasfora]]: I only use this extension for one thing, Rainbow Brackets. In options I've disabled 
+     everything else other than rainbow braces.
+*** Screenshot
+    [[file:../../images/vs2019-cpp.png]]
+   
+** MSys2
+   Open the MSys2 terminal and install following packages.
+   - mingw-w64-x86_64-toolchain: for gcc and related tools
+   - mingw-w64-x86_64-clang: for clang and releated tools
+   - mingw-w64-x86_64-clang-tools-extra
+   #+begin_src shell
+     pacman -Syuu
+     pacman -S mingw-w64-x86_64-toolchain
+     pacman -S mingw-w64-x86_64-clang
+     pacman -S mingw-w64-x86_64-clang-tools-extra
+   #+end_src
+
+** Emacs
+   Major reason to get Emacs is for =Magit=. It's completely optional. But Magit is amazing
+   git ui. It can be installed via Emacs Package Manager.
+   - [[https://magit.vc/][Magit]]
+
+** Environment Variables
+*** Path
+   Windows environment PATHs are location sensitive. I did not know this for longest time.
+   Meaning order a directory appears in the PATH matters. Windows will stop searching for 
+   an executable/a program, on 1st hit in the PATH. Most instructions on the webs mention 
+   appending to PATH. I think it should be *PRE*-pending to PATH.
+   I've added following applications' directories to Path, in order of appearance
+   - ninja
+   - vcpkg
+   - CMake
+   - MSys2
+   - Git
+
+** Windows Terminal
+   I use this as my primary terminal. In order to get =VS2019 Cmd=, =Git Bash= and =Msys2 Bash= 
+   following have been added to settings.json
+   - VS2019 Cmd
+     #+begin_src javascript
+       {
+	   "guid": "{1748ecca-abdd-4aa4-bcc4-9fca0d045be5}",
+	   "name": "VS2019 Developer Prompt",
+	   "commandline": "cmd.exe /k \"%PROGRAMFILES(X86)%\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat\"",
+	   "hidden": false,
+	   "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+	   "colorScheme": "AdventureTime"
+       },
+     #+end_src
+   - Git Bash
+     ~ms-appdata:///roaming/~ is actually =%LOCALAPPDATA%/packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/RoamingState=
+     Copy icon there for below to get picked up.
+     #+begin_src javascript
+       {
+	   "guid": "{fb39ce23-a468-4ee2-bc56-7a940f799513}",
+	   "hidden": false,
+	   "name": "Git Bash",
+	   "commandline": "\"%PROGRAMFILES%\\git\\bin\\bash.exe\" -i -l",
+	   "icon": "ms-appdata:///roaming/git-bash_32px.ico",
+	   "colorScheme": "MaterialDark"
+       },
+     #+end_src
+   - Msys2 Bash
+     #+begin_src javascript
+       {
+	   "guid": "{09dc5eef-6840-4050-ae69-21e55e6a2e63}",
+	   "hidden": false,
+	   "name": "MSys2 x64",
+	   "commandline": "E:\\msys2\\msys2_shell.cmd -defterm -no-start -mingw64",
+	   "icon": "ms-appdata:///roaming/msys2.ico",
+	   "colorScheme": "Duotone Dark"
+       },
+     #+end_src
+   
+* Epilogue
+  That should be it. Now you should be able to compile using MSVC, GCC, and Clang. VS will keep MSVC uptodate, MSys2 will keep GCC and Clang updated.
+  At this time I have MSVC 16.5.5, GCC 10.1, and Clang 10.0.0.

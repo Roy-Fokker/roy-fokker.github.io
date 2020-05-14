@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-05-14 Thu 19:25 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swap Buffer</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Neel Raiyani [Roy Fokker]">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/theme.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.18.0/min/vs/loader.js"></script>
+<script src="/js/monaco-editor-code-block.js"></script>
+<script src="/js/helper.js"></script>
+</head>
+<body>
+<div id="content">
+<header>
+<h1 class="title">Swap Buffer</h1>
+<p class="subtitle">Setting up C++ on Windows 7/10 64bit</p>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd4ea221">Why?</a></li>
+<li><a href="#orge6ce19a">Tools to Download</a></li>
+<li><a href="#orgdb87b26">The Installations</a></li>
+<li><a href="#orgbc0b390">Per tool configurations</a></li>
+<li><a href="#orgf02914f">Epilogue</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orgd4ea221" class="outline-2">
+<h2 id="orgd4ea221">Why?</h2>
+<div class="outline-text-2" id="text-orgd4ea221">
+<p>
+Below is setup for C++ that I have used for my Windows based C++ programming.
+This setup is <b>one</b> way, the way that works best for my percularities.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge6ce19a" class="outline-2">
+<h2 id="orge6ce19a">Tools to Download</h2>
+<div class="outline-text-2" id="text-orge6ce19a">
+<p>
+Versions used were latest available at time of writing. I keep the tools current
+to latest available stable releases.
+</p>
+<ul class="org-ul">
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>(vscode)</li>
+<li><a href="https://visualstudio.microsoft.com/vs/">Visual Studio 2019 Community</a>(vs2019)</li>
+<li><a href="https://gitforwindows.org/">Git for Windows</a>(git)</li>
+<li><a href="https://cmake.org/">CMake</a></li>
+<li><a href="https://www.msys2.org/">MSys2 64bit</a>(msys)</li>
+<li><a href="https://vcpkg.readthedocs.io/en/latest/">vcpkg</a></li>
+<li><a href="https://ninja-build.org/">Ninja</a></li>
+<li><a href="https://github.com/Microsoft/Terminal">Windows Terminal</a></li>
+<li><a href="https://www.gnu.org/software/emacs/">Emacs</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdb87b26" class="outline-2">
+<h2 id="orgdb87b26">The Installations</h2>
+<div class="outline-text-2" id="text-orgdb87b26">
+<p>
+<b>Note:</b> One would think this wouldn't matter. And if you are familar with windows it 
+probably doesn't matter. This order is least hassle for me.  
+<b>Note:</b> Destination directories don't matter. As long as you are willing to mess
+around with Windows Path and Environment Variables. Paths below are how I've set 
+it up on my main machine.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org65b03fb"></a>Visual Studio Code<br>
+<div class="outline-text-3" id="text-org65b03fb">
+<p>
+Normally, my preference is to install tooling software into <code>Program Files</code> folder.
+However, VSCode is part of <i>modern</i> applications group that doesn't follow OS prefered 
+practices. As such, it really really, wants to install in to <code>%UserProfile%</code> directory.
+I've learned this hard way, as my initial install was in to <code>Program Files</code> and number 
+of annoyances forced me to uninstall and reinstall it.  
+Moral, let it install in it's prefered default directory. Which for me happens to be
+<code>C:\Users\&lt;Name&gt;\AppData\Local\Programs\Microsoft VS Code</code>
+</p>
+</div>
+</li>
+
+<li><a id="org22d7a3b"></a>Visual Studio 2019 Community<br>
+<div class="outline-text-3" id="text-org22d7a3b">
+<p>
+The installer for VS2019 is famously <i>unique</i>. I've installed it using following:
+</p>
+<ul class="org-ul">
+<li>'Workloads'
+<ul class="org-ul">
+<li>Desktop development with C++</li>
+<li>Game development with C++</li>
+<li>Linux development with C++</li>
+<li>Universal Windows Platform development</li>
+<li>Python development</li>
+<li>.NET desktop development</li>
+</ul></li>
+<li>'Individual Components'
+<ul class="org-ul">
+<li>C++ ATL for latest v142 build tools</li>
+<li>C++/WinRT</li>
+<li>C++ CMake tools for Windows</li>
+<li>C++ AddressSanitizers</li>
+<li>C++ Modules</li>
+<li>Test Adapters for Boost.Test</li>
+<li>Test Adapters for Google Test</li>
+<li>Image and 3D model editors</li>
+<li>Graphics debugger and GPU profiler for DirectX</li>
+<li>DGML editor</li>
+<li>Class Designer</li>
+<li>NuGet package manager</li>
+</ul></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org6833321"></a>Git for Windows and CMake<br>
+<div class="outline-text-3" id="text-org6833321">
+<p>
+Downloaded 64bit version and installed to <code>Program Files</code>. Pretty hassle free.
+</p>
+</div>
+</li>
+
+<li><a id="org9a34dca"></a>MSys2 64bit<br>
+<div class="outline-text-3" id="text-org9a34dca">
+<p>
+Now Msys2 is not one application. But rather a <i>System</i> that can install other
+\*nix applications/programs. I've installed it to <code>e:/msys2/</code>.
+</p>
+</div>
+</li>
+
+<li><a id="orgc8e3acc"></a>vcpkg<br>
+<div class="outline-text-3" id="text-orgc8e3acc">
+<p>
+vcpkg requires you already have a C++ compiler and Git installed.
+Before this point I've already installed VS2019 and Git for Windows. After this
+it's pretty easy to just follow the instructions on vcpkg site.
+I cloned the repository to <code>D:/Projects/CPP/.packages/vcpkg</code>. Why such an odd path?
+It's because I misunderstood how vcpkg works. But the path doesn't matter as long 
+as environment variable are setup properly, which is described in configuration section.
+</p>
+</div>
+</li>
+
+<li><a id="org1bb670f"></a>Ninja<br>
+<div class="outline-text-3" id="text-org1bb670f">
+<p>
+Ninja has no installer, it's just a singular executable.
+I've put it in <code>E:/Applications/ninja/</code>
+</p>
+</div>
+</li>
+
+<li><a id="org14476e7"></a>Emacs<br>
+<div class="outline-text-3" id="text-org14476e7">
+<p>
+Emacs too has no installer, I downloaded the 64bit version. There are couple of
+options, I just got the biggest zip file (210MB).
+I've put it in <code>E:/Applications/Emacs-26.3</code>. Emacs version was 26.3 at time of
+writing.
+</p>
+</div>
+</li>
+
+<li><a id="org7bab28e"></a>Windows Terminal<br>
+<div class="outline-text-3" id="text-org7bab28e">
+<p>
+No installer here, just used version from Windows Store.
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgbc0b390" class="outline-2">
+<h2 id="orgbc0b390">Per tool configurations</h2>
+<div class="outline-text-2" id="text-orgbc0b390">
+<p>
+These are optional for most part, I use them to make development experience nicer.
+Most of the configuration is install some extensions for the editors.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org4549e98"></a>Visual Studio Code<br>
+<div class="outline-text-3" id="text-org4549e98">
+<p>
+Out of the box vscode isn't a good C++ editor. So to fix that I've gotten following
+extensions installed using vscode's extensions manager.
+</p>
+<ul class="org-ul">
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a>: Syntax Highlighting for C++</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a>: Execute CMake builds from vscode</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=twxs.cmake">CMake for VisualStudio Code</a>: CMake Syntax Highlighting</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=TimGJones.hlsltools">HLSL Tools for VS Code</a>: HLSL and GLSL Syntax Highlighting</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=surajbarkale.ninja">Ninja Build</a>: Ninja build syntax highlight</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2">Bracket Pair Colorizer 2</a>: Colorizer bracket pairs.</li>
+</ul>
+</div>
+<ul class="org-ul">
+<li><a id="orgcef2cc9"></a>Screenshot<br>
+<div class="outline-text-4" id="text-orgcef2cc9">
+
+<figure>
+<img src="../../images/vscode-cpp-cmake.png" alt="vscode-cpp-cmake.png">
+
+</figure>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org0b0b473"></a>Visual Studo 2019 Community<br>
+<div class="outline-text-3" id="text-org0b0b473">
+<p>
+VS2019 is heavy IDE, it does a lot. Some would say none of it well. I think it has 
+good bits, okay bits, and bad bits. Big software with many moving bits. Primary reason
+to install it is to get the MSVC Build Tools, and the C++ Debugger. Which miles better
+than the alternatives.
+Extensions installed via it's Extensions Manager are:
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/tgjones/HlslTools">HLSL Tools</a>: HLSL and GLSL Syntax Highlighting.</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=TomasRestrepo.Viasfora">Viasfora</a>: I only use this extension for one thing, Rainbow Brackets. In options I've disabled 
+everything else other than rainbow braces.</li>
+</ul>
+</div>
+<ul class="org-ul">
+<li><a id="orgf301507"></a>Screenshot<br>
+<div class="outline-text-4" id="text-orgf301507">
+
+<figure>
+<img src="../../images/vs2019-cpp.png" alt="vs2019-cpp.png">
+
+</figure>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="org679a6a1"></a>MSys2<br>
+<div class="outline-text-3" id="text-org679a6a1">
+<p>
+Open the MSys2 terminal and install following packages.
+</p>
+<ul class="org-ul">
+<li>mingw-w64-x86<sub>64</sub>-toolchain: for gcc and related tools</li>
+<li>mingw-w64-x86<sub>64</sub>-clang: for clang and releated tools</li>
+<li>mingw-w64-x86<sub>64</sub>-clang-tools-extra</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-shell">pacman -Syuu
+pacman -S mingw-w64-x86_64-toolchain
+pacman -S mingw-w64-x86_64-clang
+pacman -S mingw-w64-x86_64-clang-tools-extra
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org92da1a2"></a>Emacs<br>
+<div class="outline-text-3" id="text-org92da1a2">
+<p>
+Major reason to get Emacs is for <code>Magit</code>. It's completely optional. But Magit is amazing
+git ui. It can be installed via Emacs Package Manager.
+</p>
+<ul class="org-ul">
+<li><a href="https://magit.vc/">Magit</a></li>
+</ul>
+</div>
+</li>
+
+<li><a id="org7436d18"></a>Environment Variables<br>
+<ul class="org-ul">
+<li><a id="org3062bbd"></a>Path<br>
+<div class="outline-text-4" id="text-org3062bbd">
+<p>
+Windows environment PATHs are location sensitive. I did not know this for longest time.
+Meaning order a directory appears in the PATH matters. Windows will stop searching for 
+an executable/a program, on 1st hit in the PATH. Most instructions on the webs mention 
+appending to PATH. I think it should be <b>PRE</b>-pending to PATH.
+I've added following applications' directories to Path, in order of appearance
+</p>
+<ul class="org-ul">
+<li>ninja</li>
+<li>vcpkg</li>
+<li>CMake</li>
+<li>MSys2</li>
+<li>Git</li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+
+<li><a id="orgb1cdb54"></a>Windows Terminal<br>
+<div class="outline-text-3" id="text-orgb1cdb54">
+<p>
+I use this as my primary terminal. In order to get <code>VS2019 Cmd</code>, <code>Git Bash</code> and <code>Msys2 Bash</code> 
+following have been added to settings.json
+</p>
+<ul class="org-ul">
+<li><p>
+VS2019 Cmd
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript"><span class="org-rainbow-delimiters-depth-1">{</span>
+    <span class="org-string">"guid"</span>: <span class="org-string">"{1748ecca-abdd-4aa4-bcc4-9fca0d045be5}"</span>,
+    <span class="org-string">"name"</span>: <span class="org-string">"VS2019 Developer Prompt"</span>,
+    <span class="org-string">"commandline"</span>: <span class="org-string">"cmd.exe /k \"%PROGRAMFILES(X86)%\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat\""</span>,
+    <span class="org-string">"hidden"</span>: <span class="org-constant">false</span>,
+    <span class="org-string">"icon"</span>: <span class="org-string">"ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png"</span>,
+    <span class="org-string">"colorScheme"</span>: <span class="org-string">"AdventureTime"</span>
+<span class="org-rainbow-delimiters-depth-1">}</span>,
+</pre>
+</div></li>
+<li><p>
+Git Bash
+<code>ms-appdata:///roaming/</code> is actually <code>%LOCALAPPDATA%/packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/RoamingState</code>
+Copy icon there for below to get picked up.
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript"><span class="org-rainbow-delimiters-depth-1">{</span>
+    <span class="org-string">"guid"</span>: <span class="org-string">"{fb39ce23-a468-4ee2-bc56-7a940f799513}"</span>,
+    <span class="org-string">"hidden"</span>: <span class="org-constant">false</span>,
+    <span class="org-string">"name"</span>: <span class="org-string">"Git Bash"</span>,
+    <span class="org-string">"commandline"</span>: <span class="org-string">"\"%PROGRAMFILES%\\git\\bin\\bash.exe\" -i -l"</span>,
+    <span class="org-string">"icon"</span>: <span class="org-string">"ms-appdata:///roaming/git-bash_32px.ico"</span>,
+    <span class="org-string">"colorScheme"</span>: <span class="org-string">"MaterialDark"</span>
+<span class="org-rainbow-delimiters-depth-1">}</span>,
+</pre>
+</div></li>
+<li><p>
+Msys2 Bash
+</p>
+<div class="org-src-container">
+<pre class="src src-javascript"><span class="org-rainbow-delimiters-depth-1">{</span>
+    <span class="org-string">"guid"</span>: <span class="org-string">"{09dc5eef-6840-4050-ae69-21e55e6a2e63}"</span>,
+    <span class="org-string">"hidden"</span>: <span class="org-constant">false</span>,
+    <span class="org-string">"name"</span>: <span class="org-string">"MSys2 x64"</span>,
+    <span class="org-string">"commandline"</span>: <span class="org-string">"E:\\msys2\\msys2_shell.cmd -defterm -no-start -mingw64"</span>,
+    <span class="org-string">"icon"</span>: <span class="org-string">"ms-appdata:///roaming/msys2.ico"</span>,
+    <span class="org-string">"colorScheme"</span>: <span class="org-string">"Duotone Dark"</span>
+<span class="org-rainbow-delimiters-depth-1">}</span>,
+</pre>
+</div></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgf02914f" class="outline-2">
+<h2 id="orgf02914f">Epilogue</h2>
+<div class="outline-text-2" id="text-orgf02914f">
+<p>
+That should be it. Now you should be able to compile using MSVC, GCC, and Clang. VS will keep MSVC uptodate, MSys2 will keep GCC and Clang updated.
+At this time I have MSVC 16.5.5, GCC 10.1, and Clang 10.0.0.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
