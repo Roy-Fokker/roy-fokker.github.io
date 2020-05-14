@@ -6,14 +6,14 @@
   :PROPERTIES:
   :HTML_CONTAINER_CLASS: articles
   :END:
-** [[file:cl-on-win10.org][Setting up a Common Lisp environment on Windows.]]
+** [[file:articles/cl-on-win10.org][Setting up a Common Lisp environment on Windows.]]   :Common_Lisp:Windows10:
    Below is information, I had difficulty in finding/figuring out. As I started to on track to learn Common Lisp. 
    All of what I've learned in setting up a Common Lisp development environment on MS Windows is condensed below.
 
-** [[https://www.swapbuffer.com/roguelike-cpp/][Roguelike in C++17]]
+** [[https://www.swapbuffer.com/roguelike-cpp/][Roguelike in C++17]]                                 :Windows10:Cpp17:CMake:
    In-progress series of pages that attempts to make a simple roguelike in C++17 using libTCOD.
 
-** [[https://www.swapbuffer.com/Basic-Project][Basic cmake project]]
+** [[https://www.swapbuffer.com/Basic-Project][Basic cmake project]] :Windows10:Cpp17:CMake:
    Basic cmake project structure for C++17 using =vcpkg= and =msvc=
 
 * Snippets
@@ -21,15 +21,14 @@
   :HTML_CONTAINER_CLASS: snippets
   :END:
 
-
 * Screenshot of the Day
   :PROPERTIES:
-  :HTML_CONTAINER_CLASS: sidebar
+  :HTML_CONTAINER_CLASS: screenshot
   :END:
 
 * Community
   :PROPERTIES:
-  :HTML_CONTAINER_CLASS: sidebar
+  :HTML_CONTAINER_CLASS: community
   :END:
 
   - IRC: [[irc://irc.afternet.org/#gamedev][#GameDev on Afternet]]

@@ -1,755 +1,821 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Nova+Mono&display=swap');
 
-header{
+* {
+	box-sizing: border-box;
+}
+
+body {
+    max-width: 75%;
+    min-width: 800px;
+    margin: 0 auto;
+    color: #f8f8f2;
+    background-color: #282a36;
+    font-family: "Noto Sans", sans-serif;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.2em;
+}
+
+header {
     margin-bottom: 2em;
+    grid-column: 1/5;
+    grid-row: 1;
+}
+
+nav,
+.articles,
+.snippets {
+    grid-column: 1/4;
+}
+
+.screenshot,
+.community {
+    grid-column: 4/5;
+}
+
+.screenshot {
+    grid-row: 2;
 }
 
 .title {
-	text-align: left;
-	margin-bottom: .2em;
-	margin-left: .2em;
-	color: #bd93f9;
-	padding-bottom: 0.2em;
-	border-bottom: 4px solid;
+    text-align: left;
+    margin-bottom: .2em;
+    margin-left: .2em;
+    color: #bd93f9;
+    padding-bottom: 0.2em;
+    border-bottom: 4px solid;
 }
 
-.title::before{
-	content: '⇋';
-	font-size: smaller;
-	margin: .2em;
-	color: orange;
+.title::before {
+    content: '⇋';
+    font-size: smaller;
+    margin: .2em;
+    color: orange;
 }
 
 .subtitle {
-	text-align: right;
-	font-size: medium;
-	font-weight: bold;
-	margin-top: -2.5em;
+    text-align: right;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: -2.5em;
+}
+
+nav>h2,
+.outline-2>h2,
+.outline-3>h3,
+.outline-4>h4 {
+    margin-bottom: 0.2em;
+    margin-top: 0.2em;
+    margin-left: -0.2em;
+}
+
+nav,
+.outline-2,
+.outline-3,
+.outline-4 {
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+
+.outline-2>h2:hover:before {
+    content: '↟';
+    color: #ff88f2;
+    margin-left: -1em;
+    padding-right: 0.5em;
 }
 
 .todo {
-	font-family: monospace;
-	color: red;
+    font-family: monospace;
+    color: red;
 }
 
 .done {
-	font-family: monospace;
-	color: green;
+    font-family: monospace;
+    color: green;
 }
 
 .priority {
-	font-family: monospace;
-	color: orange;
+    font-family: monospace;
+    color: orange;
 }
 
 .tag {
-	background-color: #eee;
-	font-family: monospace;
-	padding: 2px;
-	font-size: 80%;
-	font-weight: normal;
+    display: inline-block;
+    position: relative;
+    float: right;
+    font-family: monospace;
+    padding: 2px;
+    font-size: 80%;
+    font-weight: normal;
+}
+
+.tag > span {
+	margin: 0.1em;
+	border: solid 1px #ff79c6;
+	border-radius: 25%;
+	padding: 0.2em;
 }
 
 .timestamp {
-	color: #bebebe;
+    color: #bebebe;
 }
 
 .timestamp-kwd {
-	color: #5f9ea0;
+    color: #5f9ea0;
 }
 
 .org-right {
-	margin-left: auto;
-	margin-right: 0px;
-	text-align: right;
+    margin-left: auto;
+    margin-right: 0px;
+    text-align: right;
 }
 
 .org-left {
-	margin-left: 0px;
-	margin-right: auto;
-	text-align: left;
+    margin-left: 0px;
+    margin-right: auto;
+    text-align: left;
 }
 
 .org-center {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .underline {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
-#postamble p, #preamble p {
-	font-size: 90%;
-	margin: .2em;
+#postamble p,
+#preamble p {
+    font-size: 90%;
+    margin: .2em;
 }
 
 p.verse {
-	margin-left: 3%;
+    margin-left: 3%;
 }
 
 pre {
-	font-family: "Nova Mono", monospace;
-	border: 1px solid #ccc;
-	box-shadow: 3px 3px 3px #eee;
-	padding: 8pt;
-	overflow: auto;
-	margin: 1.2em;
-	margin-left: 0;
-	color: #fff;
+    font-family: "Nova Mono", monospace;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    overflow: auto;
+    margin: 1.2em;
+    margin-left: 0;
+    color: #fff;
 }
 
 pre.src {
-	position: relative;
-	overflow: visible;
-	padding-top: 1.2em;
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
 }
 
 pre.src:before {
-	display: none;
-	position: absolute;
-	color: #000;
-	background-color: white;
-	top: -10px;
-	right: 10px;
-	padding: 3px;
-	border: 1px solid black;
+    display: none;
+    position: absolute;
+    color: #000;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
 }
 
 pre.src:hover:before {
-	display: inline;
+    display: inline;
 }
+
 
 /* Languages per Org manual */
 
 pre.src-asymptote:before {
-	content: 'Asymptote';
+    content: 'Asymptote';
 }
 
 pre.src-awk:before {
-	content: 'Awk';
+    content: 'Awk';
 }
 
 pre.src-C:before {
-	content: 'C';
+    content: 'C';
 }
+
 
 /* pre.src-C++ doesn't work in CSS */
 
 pre.src-clojure:before {
-	content: 'Clojure';
+    content: 'Clojure';
 }
 
 pre.src-css:before {
-	content: 'CSS';
+    content: 'CSS';
 }
 
 pre.src-D:before {
-	content: 'D';
+    content: 'D';
 }
 
 pre.src-ditaa:before {
-	content: 'ditaa';
+    content: 'ditaa';
 }
 
 pre.src-dot:before {
-	content: 'Graphviz';
+    content: 'Graphviz';
 }
 
 pre.src-calc:before {
-	content: 'Emacs Calc';
+    content: 'Emacs Calc';
 }
 
 pre.src-emacs-lisp:before {
-	content: 'Emacs Lisp';
+    content: 'Emacs Lisp';
 }
 
 pre.src-fortran:before {
-	content: 'Fortran';
+    content: 'Fortran';
 }
 
 pre.src-gnuplot:before {
-	content: 'gnuplot';
+    content: 'gnuplot';
 }
 
 pre.src-haskell:before {
-	content: 'Haskell';
+    content: 'Haskell';
 }
 
 pre.src-hledger:before {
-	content: 'hledger';
+    content: 'hledger';
 }
 
 pre.src-java:before {
-	content: 'Java';
+    content: 'Java';
 }
 
 pre.src-js:before {
-	content: 'Javascript';
+    content: 'Javascript';
 }
 
 pre.src-latex:before {
-	content: 'LaTeX';
+    content: 'LaTeX';
 }
 
 pre.src-ledger:before {
-	content: 'Ledger';
+    content: 'Ledger';
 }
 
 pre.src-lisp:before {
-	content: 'Lisp';
+    content: 'Lisp';
 }
 
 pre.src-lilypond:before {
-	content: 'Lilypond';
+    content: 'Lilypond';
 }
 
 pre.src-lua:before {
-	content: 'Lua';
+    content: 'Lua';
 }
 
 pre.src-matlab:before {
-	content: 'MATLAB';
+    content: 'MATLAB';
 }
 
 pre.src-mscgen:before {
-	content: 'Mscgen';
+    content: 'Mscgen';
 }
 
 pre.src-ocaml:before {
-	content: 'Objective Caml';
+    content: 'Objective Caml';
 }
 
 pre.src-octave:before {
-	content: 'Octave';
+    content: 'Octave';
 }
 
 pre.src-org:before {
-	content: 'Org mode';
+    content: 'Org mode';
 }
 
 pre.src-oz:before {
-	content: 'OZ';
+    content: 'OZ';
 }
 
 pre.src-plantuml:before {
-	content: 'Plantuml';
+    content: 'Plantuml';
 }
 
 pre.src-processing:before {
-	content: 'Processing.js';
+    content: 'Processing.js';
 }
 
 pre.src-python:before {
-	content: 'Python';
+    content: 'Python';
 }
 
 pre.src-R:before {
-	content: 'R';
+    content: 'R';
 }
 
 pre.src-ruby:before {
-	content: 'Ruby';
+    content: 'Ruby';
 }
 
 pre.src-sass:before {
-	content: 'Sass';
+    content: 'Sass';
 }
 
 pre.src-scheme:before {
-	content: 'Scheme';
+    content: 'Scheme';
 }
 
 pre.src-screen:before {
-	content: 'Gnu Screen';
+    content: 'Gnu Screen';
 }
 
 pre.src-sed:before {
-	content: 'Sed';
+    content: 'Sed';
 }
 
 pre.src-sh:before {
-	content: 'shell';
+    content: 'shell';
 }
 
 pre.src-sql:before {
-	content: 'SQL';
+    content: 'SQL';
 }
 
 pre.src-sqlite:before {
-	content: 'SQLite';
+    content: 'SQLite';
 }
+
 
 /* additional languages in org.el's org-babel-load-languages alist */
 
 pre.src-forth:before {
-	content: 'Forth';
+    content: 'Forth';
 }
 
 pre.src-io:before {
-	content: 'IO';
+    content: 'IO';
 }
 
 pre.src-J:before {
-	content: 'J';
+    content: 'J';
 }
 
 pre.src-makefile:before {
-	content: 'Makefile';
+    content: 'Makefile';
 }
 
 pre.src-maxima:before {
-	content: 'Maxima';
+    content: 'Maxima';
 }
 
 pre.src-perl:before {
-	content: 'Perl';
+    content: 'Perl';
 }
 
 pre.src-picolisp:before {
-	content: 'Pico Lisp';
+    content: 'Pico Lisp';
 }
 
 pre.src-scala:before {
-	content: 'Scala';
+    content: 'Scala';
 }
 
 pre.src-shell:before {
-	content: 'Shell Script';
+    content: 'Shell Script';
 }
 
 pre.src-ebnf2ps:before {
-	content: 'ebfn2ps';
+    content: 'ebfn2ps';
 }
+
 
 /* additional language identifiers per "defun org-babel-execute"
 in ob-*.el */
 
 pre.src-cpp:before {
-	content: 'C++';
+    content: 'C++';
 }
 
 pre.src-cmake:before {
-	content: 'CMake'
+    content: 'CMake'
 }
 
 pre.src-markdown:before {
-	content: 'markdown'
+    content: 'markdown'
 }
 
 pre.src-abc:before {
-	content: 'ABC';
+    content: 'ABC';
 }
 
 pre.src-coq:before {
-	content: 'Coq';
+    content: 'Coq';
 }
 
 pre.src-groovy:before {
-	content: 'Groovy';
+    content: 'Groovy';
 }
+
 
 /* additional language identifiers from org-babel-shell-names in
 ob-shell.el: ob-shell is the only babel language using a lambda to put
 the execution function name together. */
 
 pre.src-bash:before {
-	content: 'bash';
+    content: 'bash';
 }
 
 pre.src-csh:before {
-	content: 'csh';
+    content: 'csh';
 }
 
 pre.src-ash:before {
-	content: 'ash';
+    content: 'ash';
 }
 
 pre.src-dash:before {
-	content: 'dash';
+    content: 'dash';
 }
 
 pre.src-ksh:before {
-	content: 'ksh';
+    content: 'ksh';
 }
 
 pre.src-mksh:before {
-	content: 'mksh';
+    content: 'mksh';
 }
 
 pre.src-posh:before {
-	content: 'posh';
+    content: 'posh';
 }
+
 
 /* Additional Emacs modes also supported by the LaTeX listings package */
 
 pre.src-ada:before {
-	content: 'Ada';
+    content: 'Ada';
 }
 
 pre.src-asm:before {
-	content: 'Assembler';
+    content: 'Assembler';
 }
 
 pre.src-caml:before {
-	content: 'Caml';
+    content: 'Caml';
 }
 
 pre.src-delphi:before {
-	content: 'Delphi';
+    content: 'Delphi';
 }
 
 pre.src-html:before {
-	content: 'HTML';
+    content: 'HTML';
 }
 
 pre.src-idl:before {
-	content: 'IDL';
+    content: 'IDL';
 }
 
 pre.src-mercury:before {
-	content: 'Mercury';
+    content: 'Mercury';
 }
 
 pre.src-metapost:before {
-	content: 'MetaPost';
+    content: 'MetaPost';
 }
 
 pre.src-modula-2:before {
-	content: 'Modula-2';
+    content: 'Modula-2';
 }
 
 pre.src-pascal:before {
-	content: 'Pascal';
+    content: 'Pascal';
 }
 
 pre.src-ps:before {
-	content: 'PostScript';
+    content: 'PostScript';
 }
 
 pre.src-prolog:before {
-	content: 'Prolog';
+    content: 'Prolog';
 }
 
 pre.src-simula:before {
-	content: 'Simula';
+    content: 'Simula';
 }
 
 pre.src-tcl:before {
-	content: 'tcl';
+    content: 'tcl';
 }
 
 pre.src-tex:before {
-	content: 'TeX';
+    content: 'TeX';
 }
 
 pre.src-plain-tex:before {
-	content: 'Plain TeX';
+    content: 'Plain TeX';
 }
 
 pre.src-verilog:before {
-	content: 'Verilog';
+    content: 'Verilog';
 }
 
 pre.src-vhdl:before {
-	content: 'VHDL';
+    content: 'VHDL';
 }
 
 pre.src-xml:before {
-	content: 'XML';
+    content: 'XML';
 }
 
 pre.src-nxml:before {
-	content: 'XML';
+    content: 'XML';
 }
+
 
 /* add a generic configuration mode; LaTeX export needs an additional
 (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
 
 pre.src-conf:before {
-	content: 'Configuration File';
+    content: 'Configuration File';
 }
 
 table {
-	border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 caption.t-above {
-	caption-side: top;
+    caption-side: top;
 }
 
 caption.t-bottom {
-	caption-side: bottom;
+    caption-side: bottom;
 }
 
-td, th {
-	vertical-align: top;
+td,
+th {
+    vertical-align: top;
 }
 
 th.org-right {
-	text-align: right;
+    text-align: right;
 }
 
 th.org-left {
-	text-align: left;
+    text-align: left;
 }
 
 th.org-center {
-	text-align: center;
+    text-align: center;
 }
 
 td.org-right {
-	text-align: right;
+    text-align: right;
 }
 
 td.org-left {
-	text-align: left;
+    text-align: left;
 }
 
 td.org-center {
-	text-align: center;
+    text-align: center;
 }
 
 dt {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .footpara {
-	display: inline;
+    display: inline;
 }
 
 .footdef {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .figure {
-	padding: 1em;
+    padding: 1em;
 }
 
 .figure p {
-	text-align: center;
+    text-align: center;
 }
 
 .equation-container {
-	display: table;
-	text-align: center;
-	width: 100%;
+    display: table;
+    text-align: center;
+    width: 100%;
 }
 
 .equation {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 
 .equation-label {
-	display: table-cell;
-	text-align: right;
-	vertical-align: middle;
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
 }
 
 .inlinetask {
-	padding: 10px;
-	border: 2px solid gray;
-	margin: 10px;
-	background: #ffffcc;
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
 }
 
 #org-div-home-and-up {
-	text-align: right;
-	font-size: 70%;
-	white-space: nowrap;
+    text-align: right;
+    font-size: 70%;
+    white-space: nowrap;
 }
 
 textarea {
-	overflow-x: auto;
+    overflow-x: auto;
 }
 
 .linenr {
-	font-size: smaller;
-	color: #afa;
+    font-size: smaller;
+    color: #afa;
 }
 
 .code-highlighted {
-	background-color: #ffff00;
+    background-color: #ffff00;
 }
 
 .org-info-js_info-navigation {
-	border-style: none;
+    border-style: none;
 }
 
 #org-info-js_console-label {
-	font-size: 10px;
-	font-weight: bold;
-	white-space: nowrap;
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
 .org-info-js_search-highlight {
-	background-color: #ffff00;
-	color: #000000;
-	font-weight: bold;
+    background-color: #ffff00;
+    color: #000000;
+    font-weight: bold;
 }
 
 .org-svg {
-	width: 90%;
-}
-
-body {
-	max-width: 75%;
-	min-width: 800px;
-	margin: 0 auto;
-	color: #f8f8f2;
-	background-color: #282a36;
-	font-family: "Noto Sans", sans-serif;
+    width: 90%;
 }
 
 .org-function-name {
-	/* font-lock-function-name-face */
-	color: #50fa7b;
-	font-weight: bold;
+    /* font-lock-function-name-face */
+    color: #50fa7b;
+    font-weight: bold;
 }
 
-
 .org-markdown-header-delimiter {
-	/* markdown-header-delimiter-face */
-	color: #b3b3b3;
+    /* markdown-header-delimiter-face */
+    color: #b3b3b3;
 }
 
 .org-markdown-header-face-1 {
-	/* markdown-header-face-1 */
-	color: #50fa7b;
-	font-weight: bold;
+    /* markdown-header-face-1 */
+    color: #50fa7b;
+    font-weight: bold;
 }
 
 .org-markdown-italic {
-	/* markdown-italic-face */
-	font-style: italic;
+    /* markdown-italic-face */
+    font-style: italic;
 }
 
 .org-markdown-markup {
-	/* markdown-markup-face */
-	color: #b3b3b3;
+    /* markdown-markup-face */
+    color: #b3b3b3;
 }
 
 .org-negation-char {
-	/* font-lock-negation-char-face */
-	color: #8be9fd;
+    /* font-lock-negation-char-face */
+    color: #8be9fd;
 }
 
 .org-rainbow-delimiters-base {
-	font-weight: lighter;
+    font-weight: lighter;
 }
 
 .org-rainbow-delimiters-depth-1 {
-	/* rainbow-delimiters-depth-1-face */
-	color: #ff88f2;
+    /* rainbow-delimiters-depth-1-face */
+    color: #ff88f2;
 }
 
 .org-rainbow-delimiters-depth-2 {
-	/* rainbow-delimiters-depth-2-face */
-	color: #8be9fd;
+    /* rainbow-delimiters-depth-2-face */
+    color: #8be9fd;
 }
 
 .org-rainbow-delimiters-depth-3 {
-	/* rainbow-delimiters-depth-3-face */
-	color: #bd93f9;
+    /* rainbow-delimiters-depth-3-face */
+    color: #bd93f9;
 }
 
 .org-rainbow-delimiters-depth-4 {
-	/* rainbow-delimiters-depth-4-face */
-	color: #ff79c6;
+    /* rainbow-delimiters-depth-4-face */
+    color: #ff79c6;
 }
 
 .org-rainbow-delimiters-depth-5 {
-	/* rainbow-delimiters-depth-5-face */
-	color: #ffb86c;
+    /* rainbow-delimiters-depth-5-face */
+    color: #ffb86c;
 }
 
 .org-rainbow-delimiters-depth-6 {
-	/* rainbow-delimiters-depth-6-face */
-	color: #50fa7b;
+    /* rainbow-delimiters-depth-6-face */
+    color: #50fa7b;
 }
 
 .org-rainbow-delimiters-depth-7 {
-	/* rainbow-delimiters-depth-7-face */
-	color: #f1fa8c;
+    /* rainbow-delimiters-depth-7-face */
+    color: #f1fa8c;
 }
 
 .org-rainbow-delimiters-depth-8 {
-	/* rainbow-delimiters-depth-8-face */
-	color: #0189cc;
+    /* rainbow-delimiters-depth-8-face */
+    color: #0189cc;
 }
 
 .org-rainbow-delimiters-depth-9 {
-	/* rainbow-delimiters-depth-9-face */
-	color: #9cb6ad;
+    /* rainbow-delimiters-depth-9-face */
+    color: #9cb6ad;
 }
 
 .org-rainbow-delimiters-unmatched {
-	/* rainbow-delimiters-unmatched-face */
-	color: #ffb86c;
+    /* rainbow-delimiters-unmatched-face */
+    color: #ffb86c;
+}
+
+.org-string {
+	color: #f1fa8c;
+	background-color: #2f2f27;
+}
+
+.org-comment {
+	color: #6f6f6f;
+}
+
+.org-comment-delimiter {
+	color: #af6f6f;
 }
 
 a {
-	color: #ff79c6;
-	text-decoration: none;
+    color: #ff79c6;
+    text-decoration: none;
 }
 
-a:hover, a:focus {
-	text-decoration: underline;
+a:hover,
+a:focus {
+    text-decoration: underline;
 }
 
 a:visited {
-	color: #ff88f2;
+    color: #ff88f2;
 }
 
 .org-type {
-	color: #8be9fd;
+    color: #8be9fd;
 }
 
 .org-keyword {
-	color: #ff79c6;
+    color: #ff79c6;
 }
 
-.org-preprocessor, .org-constant {
-	color: #ff79ff;
-	font-style: italic;
+.org-preprocessor,
+.org-constant {
+    color: #ff79ff;
+    font-style: italic;
 }
-
 
 table {
-	border-spacing: 0.2em;
+    border-spacing: 0.2em;
 }
-th, td {
-	padding: 0.2em;
-	border-bottom: 1px solid;
+
+th,
+td {
+    padding: 0.2em;
+    border-bottom: 1px solid;
 }
 
 th {
-	border-top: 1px solid;
+    border-top: 1px solid;
 }
 
 li {
-	margin: auto;
+    margin: auto;
 }
 
 img {
-	width: 100%;
-}
-
-nav > h2, .outline-2 > h2, .outline-3 > h3, .outline-4 > h4 {
-	margin-bottom: 0.2em;
-	margin-top: 0.2em;
-	margin-left: -0.2em;
-}
-
-nav, .outline-2, .outline-3, .outline-4 {
-	margin-left: 1em;
-	margin-bottom: 1em;
-}
-
-.outline-2 > h2:hover:before {
-	content: '↟';
-	color: #ff88f2;
-	margin-left: -1em;
-	padding-right: 0.5em;
+    width: 100%;
 }

@@ -1,4 +1,4 @@
-#+SETUPFILE: header.org
+#+SETUPFILE: ../header.org
 #+SUBTITLE: Setting up Common Lisp on Windows 7/10 64bit
 #+OPTIONS: H:1 num:nil
 
@@ -135,37 +135,37 @@
     - BracketHighlighter
   - Add configuration for =Roswell=, if using =Roswell=, as follows 
     - Files are in ~%APPDATA%\Roaming\Sublime Text 3\Packages\SublimeREPL\config\CommonLisp\~
-    - Edit ~Main.sublime-menu~ by adding following on Line 15 after ~"children":{{{BO}}}~
-      #+begin_src js
-	{
-	    "command": "repl_open",
-	    "caption": "Roswell",
-	    "id": "repl_roswell",
-	    "mnemonic": "R",
-	    "args": {
-		"type": "subprocess",
-		"encoding": "utf8",
-		"external_id": "lisp",
-		"cmd": ["ros", "run"],
-		"soft_quit": "\n(quit)\n",
-		"cwd": "$folder",
-		"cmd_postfix": "\n",
-		"syntax": "Packages/Lisp/Lisp.tmLanguage"
-	    }
-	},
-      #+end_src
-    - Edit ~Default.sublime-commands~ by adding following on Line 2 after ~{{{BO}}}~
-      #+begin_src js
-	{ 
-	    "caption": "SublimeREPL: Roswell",
-	    "command": "run_existing_window_command", 
-	    "args":
-	    {
-		"id": "repl_roswell",
-		"file": "config/CommonLisp/Main.sublime-menu"
-	    }
-	},
-     #+end_src
+    - Edit ~Main.sublime-menu~ by adding following on Line 15 after ~"children": [~
+#+begin_src js
+  {
+      "command": "repl_open",
+      "caption": "Roswell",
+      "id": "repl_roswell",
+      "mnemonic": "R",
+      "args": {
+	  "type": "subprocess",
+	  "encoding": "utf8",
+	  "external_id": "lisp",
+	  "cmd": ["ros", "run"],
+	  "soft_quit": "\n(quit)\n",
+	  "cwd": "$folder",
+	  "cmd_postfix": "\n",
+	  "syntax": "Packages/Lisp/Lisp.tmLanguage"
+      }
+  },
+#+end_src
+    - Edit ~Default.sublime-commands~ by adding following on Line 2 after ~[~
+#+begin_src js
+  { 
+      "caption": "SublimeREPL: Roswell",
+      "command": "run_existing_window_command", 
+      "args":
+      {
+	  "id": "repl_roswell",
+	  "file": "config/CommonLisp/Main.sublime-menu"
+      }
+  },
+#+end_src
 - [[https://code.visualstudio.com/][VSCode]]:- Again will need either Roswell or SBCL installed
   - Extensions
     - Lisp syntax highlight
