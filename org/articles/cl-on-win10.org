@@ -122,7 +122,7 @@
   Start Emacs and execute Slime package via following `Alt+x` followed by `slime`
 
 * Screenshot
-  [[file:images/emacs_lisp_screenshot.png]]
+  [[../../images/emacs_lisp_screenshot.png]]
 
 * Alternatives
   Listing these 1st incase you don't want to go through the hassle of setting up Emacs and Roswell

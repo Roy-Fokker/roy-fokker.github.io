@@ -26,6 +26,10 @@ header {
 }
 
 nav,
+.outline-2 {
+    grid-column: 1/5;
+}
+
 .articles,
 .snippets {
     grid-column: 1/4;
@@ -39,6 +43,7 @@ nav,
 .screenshot {
     grid-row: 2;
 }
+
 
 .title {
     text-align: left;
