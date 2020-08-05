@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,700&display=swap');
+
+:root
+{
+    --bg-color: #282a36;
+    --fg-color: #f8f8f2;
+    --sel-color: #44475A;
+    --cmt-color: #6272A4;
+    --c1-color: #FF5555;
+    --c2-color: #FFB86C;
+    --c3-color: #F1FA8C;
+    --c4-color: #50FA7B;
+    --c5-color: #BD93F9;
+    --c6-color: #8BE9FD;
+    --c7-color: #FF79C6;
+
+}
+
+@media (prefers-color-scheme: light)
+{
+    :root
+    {
+        --fg-color: #282a36;
+        --bg-color: #f8f8f2;
+        --sel-color: #44475A;
+        --cmt-color: #6272A4;
+        --c1-color: #FF5555;
+        --c2-color: #835f3a;
+        --c3-color: #545730;
+        --c4-color: #50FA7B;
+        --c5-color: #4b3b63;
+        --c6-color: #8BE9FD;
+        --c7-color: #FF79C6;
+    }
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body
+{
+    max-width: 80%;
+    /*min-width: 1024px;*/
+    margin: 0 auto;
+    padding: 0.2rem;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Lobster', cursive;
+}
+
+h2, h3, h4, h5, h6
+{
+    font-weight: 400;
+}
+
+header
+{
+    margin-bottom: 1rem;
+    border-bottom: var(--c7-color) solid 4px;
+    padding-bottom: .5rem;
+}
+
+header h1
+{
+    color: var(--c5-color);
+    margin: 0 0 .2rem .2rem;
+}
+
+header h1::before
+{
+    content: '⇋';
+    font-size: smaller;
+    margin: .2em;
+    color: var(--c2-color);
+}
+
+header h2 
+{
+    color: var(--c3-color);
+    text-align: right;
+    margin-top: -1.5rem;
+    font-size: 1rem;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: italic;
+}
+
+footer
+{
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+    border-top: var(--c7-color) solid 1px;
+    text-align: right;
+}
+
+footer h6
+{
+    color: var(--c4-color);
+    letter-spacing: 0.5rem;
+}
