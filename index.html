@@ -1,4 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Buffer</title>
+</head>
+<body>
+    <header>
+        <h1>Swap Buffer</h1>
+        <h2>Distances are to scale, objects are not.</h2>
+    </header>
+    <div id="content">
+        <section>
+            <h1>Section A:</h1>
+            <div>
+                Some fantastic content.
+            </div>
+        </section>
+        <section>
+            <h1>Heading 1:</h1>
+            <div>
+                More fantastic content
+            </div>
+        </section>
+    </div>
+    <footer>
+        <h6>End of file.</h6>
+    </footer>
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,700&display=swap');
 
 :root
 {
@@ -13,7 +44,6 @@
     --c5-color: #BD93F9;
     --c6-color: #8BE9FD;
     --c7-color: #FF79C6;
-
 }
 
 @media (prefers-color-scheme: light)
@@ -50,11 +80,17 @@ body
     padding: 0.2rem;
     background-color: var(--bg-color);
     color: var(--fg-color);
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+
+section
+{
+    margin-bottom: 1em;
 }
 
 h1, h2, h3, h4, h5, h6
 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Source Sans Pro', Geneva, Verdana, sans-serif;
 }
 
 h2, h3, h4, h5, h6
@@ -69,7 +105,8 @@ header
     padding-bottom: .5rem;
 }
 
-header h1
+header h1,
+section h1
 {
     color: var(--c5-color);
     margin: 0 0 .2rem .2rem;
@@ -106,3 +143,6 @@ footer h6
     color: var(--c4-color);
     letter-spacing: 0.5rem;
 }
+    </style>
+</body>
+</html>
